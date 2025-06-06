@@ -1,0 +1,2933 @@
+This report displays information about the original OpenVINO graph and the transformed OpenVINO graph.
+Multiple layers in the original graph might be fused, others might be split, while some might be changed entirely.
+
+
+The structure of this report is:
+- List of redundant modules. Modules activated in the arch file, but not used
+- List of all unsupported layers in the original OpenVINO graph
+- List of reasons for unsupporting layers
+- Original graph per layer support information analysis
+- Interal name to original name mappings
+- Per layer information dump
+
+
+List of redundant modules. Modules activated in the arch file, but not used:
+- All modules activated in the architecture file are used by the model
+
+
+List of all unsupported layers in the original OpenVINO graph:
+- All layers are supported
+
+
+List of reasons for unsupporting layers:
+- No direct reasons for CPU placement exist
+
+
+Original graph per layer support information analysis:
+- All layers are supported
+
+Internal name to original name mappings:
+Transformed Layer Name: map/TensorArrayStack/TensorArrayGatherV3
+- Original Layer Names:
+  - Subtract_2053
+  - map/TensorArrayStack/TensorArrayGatherV3
+
+Transformed Layer Name: softmax_tensor:0
+- Original Layer Name:
+  - softmax_tensor:0
+
+Transformed Layer Name: Softmax_584
+- Original Layer Name:
+  - Softmax_584
+
+Transformed Layer Name: resnet_model/dense/BiasAdd
+- Original Layer Name:
+  - resnet_model/dense/BiasAdd
+
+Transformed Layer Name: Constant_3840
+- Original Layer Name:
+  - Constant_3840
+
+Transformed Layer Name: resnet_model/dense/MatMul
+- Original Layer Name:
+  - resnet_model/dense/MatMul
+
+Transformed Layer Name: Transpose_3764
+- Original Layer Name:
+  - Transpose_3764
+
+Transformed Layer Name: Transpose_1712
+- Original Layer Name:
+  - Transpose_1712
+
+Transformed Layer Name: Constant_3763
+- Original Layer Name:
+  - Transpose_1712
+
+Transformed Layer Name: Transpose_1708
+- Original Layer Name:
+  - Transpose_1708
+
+Transformed Layer Name: Transpose_1704
+- Original Layer Name:
+  - Transpose_1704
+
+Transformed Layer Name: Transpose_1702
+- Original Layer Name:
+  - Transpose_1702
+
+Transformed Layer Name: Transpose_1676
+- Original Layer Name:
+  - Transpose_1676
+
+Transformed Layer Name: Transpose_1674
+- Original Layer Name:
+  - Transpose_1674
+
+Transformed Layer Name: Transpose_1648
+- Original Layer Name:
+  - Transpose_1648
+
+Transformed Layer Name: Transpose_1646
+- Original Layer Name:
+  - Transpose_1646
+
+Transformed Layer Name: Transpose_1642
+- Original Layer Name:
+  - Transpose_1642
+
+Transformed Layer Name: Transpose_1640
+- Original Layer Name:
+  - Transpose_1640
+
+Transformed Layer Name: Convolution_601
+- Original Layer Name:
+  - Convolution_601
+
+Transformed Layer Name: Transpose_600
+- Original Layer Name:
+  - Transpose_600
+
+Transformed Layer Name: Transpose_1584
+- Original Layer Name:
+  - Transpose_1584
+
+Transformed Layer Name: Transpose_1582
+- Original Layer Name:
+  - Transpose_1582
+
+Transformed Layer Name: Transpose_1556
+- Original Layer Name:
+  - Transpose_1556
+
+Transformed Layer Name: Transpose_1554
+- Original Layer Name:
+  - Transpose_1554
+
+Transformed Layer Name: Transpose_1528
+- Original Layer Name:
+  - Transpose_1528
+
+Transformed Layer Name: Transpose_1526
+- Original Layer Name:
+  - Transpose_1526
+
+Transformed Layer Name: Transpose_1500
+- Original Layer Name:
+  - Transpose_1500
+
+Transformed Layer Name: Transpose_1498
+- Original Layer Name:
+  - Transpose_1498
+
+Transformed Layer Name: Transpose_1472
+- Original Layer Name:
+  - Transpose_1472
+
+Transformed Layer Name: Transpose_1470
+- Original Layer Name:
+  - Transpose_1470
+
+Transformed Layer Name: Transpose_1444
+- Original Layer Name:
+  - Transpose_1444
+
+Transformed Layer Name: Transpose_1442
+- Original Layer Name:
+  - Transpose_1442
+
+Transformed Layer Name: Transpose_1438
+- Original Layer Name:
+  - Transpose_1438
+
+Transformed Layer Name: Transpose_1436
+- Original Layer Name:
+  - Transpose_1436
+
+Transformed Layer Name: Convolution_356
+- Original Layer Name:
+  - Convolution_356
+
+Transformed Layer Name: Transpose_355
+- Original Layer Name:
+  - Transpose_355
+
+Transformed Layer Name: Transpose_1380
+- Original Layer Name:
+  - Transpose_1380
+
+Transformed Layer Name: Transpose_1378
+- Original Layer Name:
+  - Transpose_1378
+
+Transformed Layer Name: Transpose_1352
+- Original Layer Name:
+  - Transpose_1352
+
+Transformed Layer Name: Transpose_1350
+- Original Layer Name:
+  - Transpose_1350
+
+Transformed Layer Name: Transpose_1324
+- Original Layer Name:
+  - Transpose_1324
+
+Transformed Layer Name: Transpose_1322
+- Original Layer Name:
+  - Transpose_1322
+
+Transformed Layer Name: Transpose_1296
+- Original Layer Name:
+  - Transpose_1296
+
+Transformed Layer Name: Transpose_1294
+- Original Layer Name:
+  - Transpose_1294
+
+Transformed Layer Name: Transpose_1290
+- Original Layer Name:
+  - Transpose_1290
+
+Transformed Layer Name: Transpose_1288
+- Original Layer Name:
+  - Transpose_1288
+
+Transformed Layer Name: Convolution_179
+- Original Layer Name:
+  - Convolution_179
+
+Transformed Layer Name: Transpose_178
+- Original Layer Name:
+  - Transpose_178
+
+Transformed Layer Name: Transpose_1232
+- Original Layer Name:
+  - Transpose_1232
+
+Transformed Layer Name: Transpose_1230
+- Original Layer Name:
+  - Transpose_1230
+
+Transformed Layer Name: Transpose_1204
+- Original Layer Name:
+  - Transpose_1204
+
+Transformed Layer Name: Transpose_1202
+- Original Layer Name:
+  - Transpose_1202
+
+Transformed Layer Name: Transpose_1176
+- Original Layer Name:
+  - Transpose_1176
+
+Transformed Layer Name: Transpose_1174
+- Original Layer Name:
+  - Transpose_1174
+
+Transformed Layer Name: Transpose_1170
+- Original Layer Name:
+  - Transpose_1170
+
+Transformed Layer Name: Transpose_1168
+- Original Layer Name:
+  - Transpose_1168
+
+Transformed Layer Name: Convolution_53
+- Original Layer Name:
+  - Convolution_53
+
+Transformed Layer Name: Transpose_52
+- Original Layer Name:
+  - Transpose_52
+
+Transformed Layer Name: MaxPool_46
+- Original Layer Name:
+  - MaxPool_46
+
+Transformed Layer Name: Transpose_1142
+- Original Layer Name:
+  - Transpose_1142
+
+Transformed Layer Name: Transpose_1140
+- Original Layer Name:
+  - Transpose_1140
+
+Transformed Layer Name: Transpose_1138
+- Original Layer Name:
+  - Transpose_1138
+
+Transformed Layer Name: Convolution_39
+- Original Layer Name:
+  - Convolution_39
+
+Transformed Layer Name: Gather_3839
+- Original Layer Name:
+  - Gather_3839
+
+Transformed Layer Name: Subtract_3611
+- Original Layer Name:
+  - Subtract_3611
+
+Transformed Layer Name: Gather_3836
+- Original Layer Name:
+  - Gather_3836
+
+Transformed Layer Name: Transpose_1164
+- Original Layer Name:
+  - Transpose_1164
+
+Transformed Layer Name: Transpose_1162
+- Original Layer Name:
+  - Transpose_1162
+
+Transformed Layer Name: Convolution_85
+- Original Layer Name:
+  - Convolution_85
+
+Transformed Layer Name: Transpose_84
+- Original Layer Name:
+  - Transpose_84
+
+Transformed Layer Name: Transpose_1158
+- Original Layer Name:
+  - Transpose_1158
+
+Transformed Layer Name: Transpose_1156
+- Original Layer Name:
+  - Transpose_1156
+
+Transformed Layer Name: Transpose_1154
+- Original Layer Name:
+  - Transpose_1154
+
+Transformed Layer Name: Convolution_76
+- Original Layer Name:
+  - Convolution_76
+
+Transformed Layer Name: Transpose_75
+- Original Layer Name:
+  - Transpose_75
+
+Transformed Layer Name: Transpose_1150
+- Original Layer Name:
+  - Transpose_1150
+
+Transformed Layer Name: Transpose_1148
+- Original Layer Name:
+  - Transpose_1148
+
+Transformed Layer Name: Transpose_1146
+- Original Layer Name:
+  - Transpose_1146
+
+Transformed Layer Name: Convolution_67
+- Original Layer Name:
+  - Convolution_67
+
+Transformed Layer Name: Transpose_66
+- Original Layer Name:
+  - Transpose_66
+
+Transformed Layer Name: Transpose_1198
+- Original Layer Name:
+  - Transpose_1198
+
+Transformed Layer Name: Transpose_1196
+- Original Layer Name:
+  - Transpose_1196
+
+Transformed Layer Name: Convolution_119
+- Original Layer Name:
+  - Convolution_119
+
+Transformed Layer Name: Transpose_118
+- Original Layer Name:
+  - Transpose_118
+
+Transformed Layer Name: Transpose_1192
+- Original Layer Name:
+  - Transpose_1192
+
+Transformed Layer Name: Transpose_1190
+- Original Layer Name:
+  - Transpose_1190
+
+Transformed Layer Name: Transpose_1188
+- Original Layer Name:
+  - Transpose_1188
+
+Transformed Layer Name: Convolution_110
+- Original Layer Name:
+  - Convolution_110
+
+Transformed Layer Name: Transpose_109
+- Original Layer Name:
+  - Transpose_109
+
+Transformed Layer Name: Transpose_1184
+- Original Layer Name:
+  - Transpose_1184
+
+Transformed Layer Name: Transpose_1182
+- Original Layer Name:
+  - Transpose_1182
+
+Transformed Layer Name: Transpose_1180
+- Original Layer Name:
+  - Transpose_1180
+
+Transformed Layer Name: Convolution_101
+- Original Layer Name:
+  - Convolution_101
+
+Transformed Layer Name: Transpose_100
+- Original Layer Name:
+  - Transpose_100
+
+Transformed Layer Name: Transpose_1226
+- Original Layer Name:
+  - Transpose_1226
+
+Transformed Layer Name: Transpose_1224
+- Original Layer Name:
+  - Transpose_1224
+
+Transformed Layer Name: Convolution_153
+- Original Layer Name:
+  - Convolution_153
+
+Transformed Layer Name: Transpose_152
+- Original Layer Name:
+  - Transpose_152
+
+Transformed Layer Name: Transpose_1220
+- Original Layer Name:
+  - Transpose_1220
+
+Transformed Layer Name: Transpose_1218
+- Original Layer Name:
+  - Transpose_1218
+
+Transformed Layer Name: Transpose_1216
+- Original Layer Name:
+  - Transpose_1216
+
+Transformed Layer Name: Convolution_144
+- Original Layer Name:
+  - Convolution_144
+
+Transformed Layer Name: Transpose_143
+- Original Layer Name:
+  - Transpose_143
+
+Transformed Layer Name: Transpose_1212
+- Original Layer Name:
+  - Transpose_1212
+
+Transformed Layer Name: Transpose_1210
+- Original Layer Name:
+  - Transpose_1210
+
+Transformed Layer Name: Transpose_1208
+- Original Layer Name:
+  - Transpose_1208
+
+Transformed Layer Name: Convolution_135
+- Original Layer Name:
+  - Convolution_135
+
+Transformed Layer Name: Transpose_134
+- Original Layer Name:
+  - Transpose_134
+
+Transformed Layer Name: Transpose_1269
+- Original Layer Name:
+  - Transpose_1269
+
+Transformed Layer Name: Transpose_1267
+- Original Layer Name:
+  - Transpose_1267
+
+Transformed Layer Name: Convolution_228
+- Original Layer Name:
+  - Convolution_228
+
+Transformed Layer Name: Transpose_227
+- Original Layer Name:
+  - Transpose_227
+
+Transformed Layer Name: Transpose_1263
+- Original Layer Name:
+  - Transpose_1263
+
+Transformed Layer Name: Transpose_1261
+- Original Layer Name:
+  - Transpose_1261
+
+Transformed Layer Name: Transpose_1259
+- Original Layer Name:
+  - Transpose_1259
+
+Transformed Layer Name: Convolution_219
+- Original Layer Name:
+  - Convolution_219
+
+Transformed Layer Name: Transpose_218
+- Original Layer Name:
+  - Transpose_218
+
+Transformed Layer Name: Transpose_1240
+- Original Layer Name:
+  - Transpose_1240
+
+Transformed Layer Name: Transpose_1238
+- Original Layer Name:
+  - Transpose_1238
+
+Transformed Layer Name: Transpose_1236
+- Original Layer Name:
+  - Transpose_1236
+
+Transformed Layer Name: Convolution_194
+- Original Layer Name:
+  - Convolution_194
+
+Transformed Layer Name: Transpose_193
+- Original Layer Name:
+  - Transpose_193
+
+Transformed Layer Name: Transpose_1318
+- Original Layer Name:
+  - Transpose_1318
+
+Transformed Layer Name: Transpose_1316
+- Original Layer Name:
+  - Transpose_1316
+
+Transformed Layer Name: Convolution_262
+- Original Layer Name:
+  - Convolution_262
+
+Transformed Layer Name: Transpose_261
+- Original Layer Name:
+  - Transpose_261
+
+Transformed Layer Name: Transpose_1312
+- Original Layer Name:
+  - Transpose_1312
+
+Transformed Layer Name: Transpose_1310
+- Original Layer Name:
+  - Transpose_1310
+
+Transformed Layer Name: Transpose_1308
+- Original Layer Name:
+  - Transpose_1308
+
+Transformed Layer Name: Convolution_253
+- Original Layer Name:
+  - Convolution_253
+
+Transformed Layer Name: Transpose_252
+- Original Layer Name:
+  - Transpose_252
+
+Transformed Layer Name: Transpose_1304
+- Original Layer Name:
+  - Transpose_1304
+
+Transformed Layer Name: Transpose_1302
+- Original Layer Name:
+  - Transpose_1302
+
+Transformed Layer Name: Transpose_1300
+- Original Layer Name:
+  - Transpose_1300
+
+Transformed Layer Name: Convolution_244
+- Original Layer Name:
+  - Convolution_244
+
+Transformed Layer Name: Transpose_243
+- Original Layer Name:
+  - Transpose_243
+
+Transformed Layer Name: Transpose_1346
+- Original Layer Name:
+  - Transpose_1346
+
+Transformed Layer Name: Transpose_1344
+- Original Layer Name:
+  - Transpose_1344
+
+Transformed Layer Name: Convolution_296
+- Original Layer Name:
+  - Convolution_296
+
+Transformed Layer Name: Transpose_295
+- Original Layer Name:
+  - Transpose_295
+
+Transformed Layer Name: Transpose_1340
+- Original Layer Name:
+  - Transpose_1340
+
+Transformed Layer Name: Transpose_1338
+- Original Layer Name:
+  - Transpose_1338
+
+Transformed Layer Name: Transpose_1336
+- Original Layer Name:
+  - Transpose_1336
+
+Transformed Layer Name: Convolution_287
+- Original Layer Name:
+  - Convolution_287
+
+Transformed Layer Name: Transpose_286
+- Original Layer Name:
+  - Transpose_286
+
+Transformed Layer Name: Transpose_1332
+- Original Layer Name:
+  - Transpose_1332
+
+Transformed Layer Name: Transpose_1330
+- Original Layer Name:
+  - Transpose_1330
+
+Transformed Layer Name: Transpose_1328
+- Original Layer Name:
+  - Transpose_1328
+
+Transformed Layer Name: Convolution_278
+- Original Layer Name:
+  - Convolution_278
+
+Transformed Layer Name: Transpose_277
+- Original Layer Name:
+  - Transpose_277
+
+Transformed Layer Name: Transpose_1374
+- Original Layer Name:
+  - Transpose_1374
+
+Transformed Layer Name: Transpose_1372
+- Original Layer Name:
+  - Transpose_1372
+
+Transformed Layer Name: Convolution_330
+- Original Layer Name:
+  - Convolution_330
+
+Transformed Layer Name: Transpose_329
+- Original Layer Name:
+  - Transpose_329
+
+Transformed Layer Name: Transpose_1368
+- Original Layer Name:
+  - Transpose_1368
+
+Transformed Layer Name: Transpose_1366
+- Original Layer Name:
+  - Transpose_1366
+
+Transformed Layer Name: Transpose_1364
+- Original Layer Name:
+  - Transpose_1364
+
+Transformed Layer Name: Convolution_321
+- Original Layer Name:
+  - Convolution_321
+
+Transformed Layer Name: Transpose_320
+- Original Layer Name:
+  - Transpose_320
+
+Transformed Layer Name: Transpose_1360
+- Original Layer Name:
+  - Transpose_1360
+
+Transformed Layer Name: Transpose_1358
+- Original Layer Name:
+  - Transpose_1358
+
+Transformed Layer Name: Transpose_1356
+- Original Layer Name:
+  - Transpose_1356
+
+Transformed Layer Name: Convolution_312
+- Original Layer Name:
+  - Convolution_312
+
+Transformed Layer Name: Transpose_311
+- Original Layer Name:
+  - Transpose_311
+
+Transformed Layer Name: Transpose_1417
+- Original Layer Name:
+  - Transpose_1417
+
+Transformed Layer Name: Transpose_1415
+- Original Layer Name:
+  - Transpose_1415
+
+Transformed Layer Name: Convolution_405
+- Original Layer Name:
+  - Convolution_405
+
+Transformed Layer Name: Transpose_404
+- Original Layer Name:
+  - Transpose_404
+
+Transformed Layer Name: Transpose_1411
+- Original Layer Name:
+  - Transpose_1411
+
+Transformed Layer Name: Transpose_1409
+- Original Layer Name:
+  - Transpose_1409
+
+Transformed Layer Name: Transpose_1407
+- Original Layer Name:
+  - Transpose_1407
+
+Transformed Layer Name: Convolution_396
+- Original Layer Name:
+  - Convolution_396
+
+Transformed Layer Name: Transpose_395
+- Original Layer Name:
+  - Transpose_395
+
+Transformed Layer Name: Transpose_1388
+- Original Layer Name:
+  - Transpose_1388
+
+Transformed Layer Name: Transpose_1386
+- Original Layer Name:
+  - Transpose_1386
+
+Transformed Layer Name: Transpose_1384
+- Original Layer Name:
+  - Transpose_1384
+
+Transformed Layer Name: Convolution_371
+- Original Layer Name:
+  - Convolution_371
+
+Transformed Layer Name: Transpose_370
+- Original Layer Name:
+  - Transpose_370
+
+Transformed Layer Name: Transpose_1466
+- Original Layer Name:
+  - Transpose_1466
+
+Transformed Layer Name: Transpose_1464
+- Original Layer Name:
+  - Transpose_1464
+
+Transformed Layer Name: Convolution_439
+- Original Layer Name:
+  - Convolution_439
+
+Transformed Layer Name: Transpose_438
+- Original Layer Name:
+  - Transpose_438
+
+Transformed Layer Name: Transpose_1460
+- Original Layer Name:
+  - Transpose_1460
+
+Transformed Layer Name: Transpose_1458
+- Original Layer Name:
+  - Transpose_1458
+
+Transformed Layer Name: Transpose_1456
+- Original Layer Name:
+  - Transpose_1456
+
+Transformed Layer Name: Convolution_430
+- Original Layer Name:
+  - Convolution_430
+
+Transformed Layer Name: Transpose_429
+- Original Layer Name:
+  - Transpose_429
+
+Transformed Layer Name: Transpose_1452
+- Original Layer Name:
+  - Transpose_1452
+
+Transformed Layer Name: Transpose_1450
+- Original Layer Name:
+  - Transpose_1450
+
+Transformed Layer Name: Transpose_1448
+- Original Layer Name:
+  - Transpose_1448
+
+Transformed Layer Name: Convolution_421
+- Original Layer Name:
+  - Convolution_421
+
+Transformed Layer Name: Transpose_420
+- Original Layer Name:
+  - Transpose_420
+
+Transformed Layer Name: Transpose_1494
+- Original Layer Name:
+  - Transpose_1494
+
+Transformed Layer Name: Transpose_1492
+- Original Layer Name:
+  - Transpose_1492
+
+Transformed Layer Name: Convolution_473
+- Original Layer Name:
+  - Convolution_473
+
+Transformed Layer Name: Transpose_472
+- Original Layer Name:
+  - Transpose_472
+
+Transformed Layer Name: Transpose_1488
+- Original Layer Name:
+  - Transpose_1488
+
+Transformed Layer Name: Transpose_1486
+- Original Layer Name:
+  - Transpose_1486
+
+Transformed Layer Name: Transpose_1484
+- Original Layer Name:
+  - Transpose_1484
+
+Transformed Layer Name: Convolution_464
+- Original Layer Name:
+  - Convolution_464
+
+Transformed Layer Name: Transpose_463
+- Original Layer Name:
+  - Transpose_463
+
+Transformed Layer Name: Transpose_1480
+- Original Layer Name:
+  - Transpose_1480
+
+Transformed Layer Name: Transpose_1478
+- Original Layer Name:
+  - Transpose_1478
+
+Transformed Layer Name: Transpose_1476
+- Original Layer Name:
+  - Transpose_1476
+
+Transformed Layer Name: Convolution_455
+- Original Layer Name:
+  - Convolution_455
+
+Transformed Layer Name: Transpose_454
+- Original Layer Name:
+  - Transpose_454
+
+Transformed Layer Name: Transpose_1522
+- Original Layer Name:
+  - Transpose_1522
+
+Transformed Layer Name: Transpose_1520
+- Original Layer Name:
+  - Transpose_1520
+
+Transformed Layer Name: Convolution_507
+- Original Layer Name:
+  - Convolution_507
+
+Transformed Layer Name: Transpose_506
+- Original Layer Name:
+  - Transpose_506
+
+Transformed Layer Name: Transpose_1516
+- Original Layer Name:
+  - Transpose_1516
+
+Transformed Layer Name: Transpose_1514
+- Original Layer Name:
+  - Transpose_1514
+
+Transformed Layer Name: Transpose_1512
+- Original Layer Name:
+  - Transpose_1512
+
+Transformed Layer Name: Convolution_498
+- Original Layer Name:
+  - Convolution_498
+
+Transformed Layer Name: Transpose_497
+- Original Layer Name:
+  - Transpose_497
+
+Transformed Layer Name: Transpose_1508
+- Original Layer Name:
+  - Transpose_1508
+
+Transformed Layer Name: Transpose_1506
+- Original Layer Name:
+  - Transpose_1506
+
+Transformed Layer Name: Transpose_1504
+- Original Layer Name:
+  - Transpose_1504
+
+Transformed Layer Name: Convolution_489
+- Original Layer Name:
+  - Convolution_489
+
+Transformed Layer Name: Transpose_488
+- Original Layer Name:
+  - Transpose_488
+
+Transformed Layer Name: Transpose_1550
+- Original Layer Name:
+  - Transpose_1550
+
+Transformed Layer Name: Transpose_1548
+- Original Layer Name:
+  - Transpose_1548
+
+Transformed Layer Name: Convolution_541
+- Original Layer Name:
+  - Convolution_541
+
+Transformed Layer Name: Transpose_540
+- Original Layer Name:
+  - Transpose_540
+
+Transformed Layer Name: Transpose_1544
+- Original Layer Name:
+  - Transpose_1544
+
+Transformed Layer Name: Transpose_1542
+- Original Layer Name:
+  - Transpose_1542
+
+Transformed Layer Name: Transpose_1540
+- Original Layer Name:
+  - Transpose_1540
+
+Transformed Layer Name: Convolution_532
+- Original Layer Name:
+  - Convolution_532
+
+Transformed Layer Name: Transpose_531
+- Original Layer Name:
+  - Transpose_531
+
+Transformed Layer Name: Transpose_1536
+- Original Layer Name:
+  - Transpose_1536
+
+Transformed Layer Name: Transpose_1534
+- Original Layer Name:
+  - Transpose_1534
+
+Transformed Layer Name: Transpose_1532
+- Original Layer Name:
+  - Transpose_1532
+
+Transformed Layer Name: Convolution_523
+- Original Layer Name:
+  - Convolution_523
+
+Transformed Layer Name: Transpose_522
+- Original Layer Name:
+  - Transpose_522
+
+Transformed Layer Name: Transpose_1578
+- Original Layer Name:
+  - Transpose_1578
+
+Transformed Layer Name: Transpose_1576
+- Original Layer Name:
+  - Transpose_1576
+
+Transformed Layer Name: Convolution_575
+- Original Layer Name:
+  - Convolution_575
+
+Transformed Layer Name: Transpose_574
+- Original Layer Name:
+  - Transpose_574
+
+Transformed Layer Name: Transpose_1572
+- Original Layer Name:
+  - Transpose_1572
+
+Transformed Layer Name: Transpose_1570
+- Original Layer Name:
+  - Transpose_1570
+
+Transformed Layer Name: Transpose_1568
+- Original Layer Name:
+  - Transpose_1568
+
+Transformed Layer Name: Convolution_566
+- Original Layer Name:
+  - Convolution_566
+
+Transformed Layer Name: Transpose_565
+- Original Layer Name:
+  - Transpose_565
+
+Transformed Layer Name: Transpose_1564
+- Original Layer Name:
+  - Transpose_1564
+
+Transformed Layer Name: Transpose_1562
+- Original Layer Name:
+  - Transpose_1562
+
+Transformed Layer Name: Transpose_1560
+- Original Layer Name:
+  - Transpose_1560
+
+Transformed Layer Name: Convolution_557
+- Original Layer Name:
+  - Convolution_557
+
+Transformed Layer Name: Transpose_556
+- Original Layer Name:
+  - Transpose_556
+
+Transformed Layer Name: Transpose_1621
+- Original Layer Name:
+  - Transpose_1621
+
+Transformed Layer Name: Transpose_1619
+- Original Layer Name:
+  - Transpose_1619
+
+Transformed Layer Name: Convolution_650
+- Original Layer Name:
+  - Convolution_650
+
+Transformed Layer Name: Transpose_649
+- Original Layer Name:
+  - Transpose_649
+
+Transformed Layer Name: Transpose_1615
+- Original Layer Name:
+  - Transpose_1615
+
+Transformed Layer Name: Transpose_1613
+- Original Layer Name:
+  - Transpose_1613
+
+Transformed Layer Name: Transpose_1611
+- Original Layer Name:
+  - Transpose_1611
+
+Transformed Layer Name: Convolution_641
+- Original Layer Name:
+  - Convolution_641
+
+Transformed Layer Name: Transpose_640
+- Original Layer Name:
+  - Transpose_640
+
+Transformed Layer Name: Transpose_1592
+- Original Layer Name:
+  - Transpose_1592
+
+Transformed Layer Name: Transpose_1590
+- Original Layer Name:
+  - Transpose_1590
+
+Transformed Layer Name: Transpose_1588
+- Original Layer Name:
+  - Transpose_1588
+
+Transformed Layer Name: Convolution_616
+- Original Layer Name:
+  - Convolution_616
+
+Transformed Layer Name: Transpose_615
+- Original Layer Name:
+  - Transpose_615
+
+Transformed Layer Name: Transpose_1670
+- Original Layer Name:
+  - Transpose_1670
+
+Transformed Layer Name: Transpose_1668
+- Original Layer Name:
+  - Transpose_1668
+
+Transformed Layer Name: Convolution_684
+- Original Layer Name:
+  - Convolution_684
+
+Transformed Layer Name: Transpose_683
+- Original Layer Name:
+  - Transpose_683
+
+Transformed Layer Name: Transpose_1664
+- Original Layer Name:
+  - Transpose_1664
+
+Transformed Layer Name: Transpose_1662
+- Original Layer Name:
+  - Transpose_1662
+
+Transformed Layer Name: Transpose_1660
+- Original Layer Name:
+  - Transpose_1660
+
+Transformed Layer Name: Convolution_675
+- Original Layer Name:
+  - Convolution_675
+
+Transformed Layer Name: Transpose_674
+- Original Layer Name:
+  - Transpose_674
+
+Transformed Layer Name: Transpose_1656
+- Original Layer Name:
+  - Transpose_1656
+
+Transformed Layer Name: Transpose_1654
+- Original Layer Name:
+  - Transpose_1654
+
+Transformed Layer Name: Transpose_1652
+- Original Layer Name:
+  - Transpose_1652
+
+Transformed Layer Name: Convolution_666
+- Original Layer Name:
+  - Convolution_666
+
+Transformed Layer Name: Transpose_665
+- Original Layer Name:
+  - Transpose_665
+
+Transformed Layer Name: Transpose_1698
+- Original Layer Name:
+  - Transpose_1698
+
+Transformed Layer Name: Transpose_1696
+- Original Layer Name:
+  - Transpose_1696
+
+Transformed Layer Name: Convolution_718
+- Original Layer Name:
+  - Convolution_718
+
+Transformed Layer Name: Transpose_717
+- Original Layer Name:
+  - Transpose_717
+
+Transformed Layer Name: Transpose_1692
+- Original Layer Name:
+  - Transpose_1692
+
+Transformed Layer Name: Transpose_1690
+- Original Layer Name:
+  - Transpose_1690
+
+Transformed Layer Name: Transpose_1688
+- Original Layer Name:
+  - Transpose_1688
+
+Transformed Layer Name: Convolution_709
+- Original Layer Name:
+  - Convolution_709
+
+Transformed Layer Name: Transpose_708
+- Original Layer Name:
+  - Transpose_708
+
+Transformed Layer Name: Transpose_1684
+- Original Layer Name:
+  - Transpose_1684
+
+Transformed Layer Name: Transpose_1682
+- Original Layer Name:
+  - Transpose_1682
+
+Transformed Layer Name: Transpose_1680
+- Original Layer Name:
+  - Transpose_1680
+
+Transformed Layer Name: Convolution_700
+- Original Layer Name:
+  - Convolution_700
+
+Transformed Layer Name: Transpose_699
+- Original Layer Name:
+  - Transpose_699
+
+
+Per layer information dump:
+Transformed Layer Name: map/TensorArrayStack/TensorArrayGatherV3
+- Type:      Parameter
+- FPGA Support: True
+- Original Layer Names:
+  - Subtract_2053
+  - map/TensorArrayStack/TensorArrayGatherV3
+
+Transformed Layer Name: softmax_tensor:0
+- Type:      Result
+- FPGA Support: True
+- Original Layer Name:
+  - softmax_tensor:0
+
+Transformed Layer Name: Softmax_584
+- Type:      Softmax
+- FPGA Support: True
+- Original Layer Name:
+  - Softmax_584
+
+Transformed Layer Name: resnet_model/dense/BiasAdd
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - resnet_model/dense/BiasAdd
+
+Transformed Layer Name: Constant_3840
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Constant_3840
+
+Transformed Layer Name: resnet_model/dense/MatMul
+- Type:      MatMul
+- FPGA Support: True
+- Original Layer Name:
+  - resnet_model/dense/MatMul
+
+Transformed Layer Name: Transpose_3764
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_3764
+
+Transformed Layer Name: Transpose_1712
+- Type:      Reshape
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1712
+
+Transformed Layer Name: Constant_3763
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1712
+
+Transformed Layer Name: Transpose_1708
+- Type:      AvgPool
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1708
+
+Transformed Layer Name: Transpose_1704
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1704
+
+Transformed Layer Name: Transpose_1702
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1702
+
+Transformed Layer Name: Transpose_1676
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1676
+
+Transformed Layer Name: Transpose_1674
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1674
+
+Transformed Layer Name: Transpose_1648
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1648
+
+Transformed Layer Name: Transpose_1646
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1646
+
+Transformed Layer Name: Transpose_1642
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1642
+
+Transformed Layer Name: Transpose_1640
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1640
+
+Transformed Layer Name: Convolution_601
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_601
+
+Transformed Layer Name: Transpose_600
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_600
+
+Transformed Layer Name: Transpose_1584
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1584
+
+Transformed Layer Name: Transpose_1582
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1582
+
+Transformed Layer Name: Transpose_1556
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1556
+
+Transformed Layer Name: Transpose_1554
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1554
+
+Transformed Layer Name: Transpose_1528
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1528
+
+Transformed Layer Name: Transpose_1526
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1526
+
+Transformed Layer Name: Transpose_1500
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1500
+
+Transformed Layer Name: Transpose_1498
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1498
+
+Transformed Layer Name: Transpose_1472
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1472
+
+Transformed Layer Name: Transpose_1470
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1470
+
+Transformed Layer Name: Transpose_1444
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1444
+
+Transformed Layer Name: Transpose_1442
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1442
+
+Transformed Layer Name: Transpose_1438
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1438
+
+Transformed Layer Name: Transpose_1436
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1436
+
+Transformed Layer Name: Convolution_356
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_356
+
+Transformed Layer Name: Transpose_355
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_355
+
+Transformed Layer Name: Transpose_1380
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1380
+
+Transformed Layer Name: Transpose_1378
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1378
+
+Transformed Layer Name: Transpose_1352
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1352
+
+Transformed Layer Name: Transpose_1350
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1350
+
+Transformed Layer Name: Transpose_1324
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1324
+
+Transformed Layer Name: Transpose_1322
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1322
+
+Transformed Layer Name: Transpose_1296
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1296
+
+Transformed Layer Name: Transpose_1294
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1294
+
+Transformed Layer Name: Transpose_1290
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1290
+
+Transformed Layer Name: Transpose_1288
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1288
+
+Transformed Layer Name: Convolution_179
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_179
+
+Transformed Layer Name: Transpose_178
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_178
+
+Transformed Layer Name: Transpose_1232
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1232
+
+Transformed Layer Name: Transpose_1230
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1230
+
+Transformed Layer Name: Transpose_1204
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1204
+
+Transformed Layer Name: Transpose_1202
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1202
+
+Transformed Layer Name: Transpose_1176
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1176
+
+Transformed Layer Name: Transpose_1174
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1174
+
+Transformed Layer Name: Transpose_1170
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1170
+
+Transformed Layer Name: Transpose_1168
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1168
+
+Transformed Layer Name: Convolution_53
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_53
+
+Transformed Layer Name: Transpose_52
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_52
+
+Transformed Layer Name: MaxPool_46
+- Type:      MaxPool
+- FPGA Support: True
+- Original Layer Name:
+  - MaxPool_46
+
+Transformed Layer Name: Transpose_1142
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1142
+
+Transformed Layer Name: Transpose_1140
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1140
+
+Transformed Layer Name: Transpose_1138
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1138
+
+Transformed Layer Name: Convolution_39
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_39
+
+Transformed Layer Name: Gather_3839
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Gather_3839
+
+Transformed Layer Name: Subtract_3611
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Subtract_3611
+
+Transformed Layer Name: Gather_3836
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Gather_3836
+
+Transformed Layer Name: Transpose_1164
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1164
+
+Transformed Layer Name: Transpose_1162
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1162
+
+Transformed Layer Name: Convolution_85
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_85
+
+Transformed Layer Name: Transpose_84
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_84
+
+Transformed Layer Name: Transpose_1158
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1158
+
+Transformed Layer Name: Transpose_1156
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1156
+
+Transformed Layer Name: Transpose_1154
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1154
+
+Transformed Layer Name: Convolution_76
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_76
+
+Transformed Layer Name: Transpose_75
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_75
+
+Transformed Layer Name: Transpose_1150
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1150
+
+Transformed Layer Name: Transpose_1148
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1148
+
+Transformed Layer Name: Transpose_1146
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1146
+
+Transformed Layer Name: Convolution_67
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_67
+
+Transformed Layer Name: Transpose_66
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_66
+
+Transformed Layer Name: Transpose_1198
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1198
+
+Transformed Layer Name: Transpose_1196
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1196
+
+Transformed Layer Name: Convolution_119
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_119
+
+Transformed Layer Name: Transpose_118
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_118
+
+Transformed Layer Name: Transpose_1192
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1192
+
+Transformed Layer Name: Transpose_1190
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1190
+
+Transformed Layer Name: Transpose_1188
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1188
+
+Transformed Layer Name: Convolution_110
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_110
+
+Transformed Layer Name: Transpose_109
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_109
+
+Transformed Layer Name: Transpose_1184
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1184
+
+Transformed Layer Name: Transpose_1182
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1182
+
+Transformed Layer Name: Transpose_1180
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1180
+
+Transformed Layer Name: Convolution_101
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_101
+
+Transformed Layer Name: Transpose_100
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_100
+
+Transformed Layer Name: Transpose_1226
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1226
+
+Transformed Layer Name: Transpose_1224
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1224
+
+Transformed Layer Name: Convolution_153
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_153
+
+Transformed Layer Name: Transpose_152
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_152
+
+Transformed Layer Name: Transpose_1220
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1220
+
+Transformed Layer Name: Transpose_1218
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1218
+
+Transformed Layer Name: Transpose_1216
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1216
+
+Transformed Layer Name: Convolution_144
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_144
+
+Transformed Layer Name: Transpose_143
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_143
+
+Transformed Layer Name: Transpose_1212
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1212
+
+Transformed Layer Name: Transpose_1210
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1210
+
+Transformed Layer Name: Transpose_1208
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1208
+
+Transformed Layer Name: Convolution_135
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_135
+
+Transformed Layer Name: Transpose_134
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_134
+
+Transformed Layer Name: Transpose_1269
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1269
+
+Transformed Layer Name: Transpose_1267
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1267
+
+Transformed Layer Name: Convolution_228
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_228
+
+Transformed Layer Name: Transpose_227
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_227
+
+Transformed Layer Name: Transpose_1263
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1263
+
+Transformed Layer Name: Transpose_1261
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1261
+
+Transformed Layer Name: Transpose_1259
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1259
+
+Transformed Layer Name: Convolution_219
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_219
+
+Transformed Layer Name: Transpose_218
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_218
+
+Transformed Layer Name: Transpose_1240
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1240
+
+Transformed Layer Name: Transpose_1238
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1238
+
+Transformed Layer Name: Transpose_1236
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1236
+
+Transformed Layer Name: Convolution_194
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_194
+
+Transformed Layer Name: Transpose_193
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_193
+
+Transformed Layer Name: Transpose_1318
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1318
+
+Transformed Layer Name: Transpose_1316
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1316
+
+Transformed Layer Name: Convolution_262
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_262
+
+Transformed Layer Name: Transpose_261
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_261
+
+Transformed Layer Name: Transpose_1312
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1312
+
+Transformed Layer Name: Transpose_1310
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1310
+
+Transformed Layer Name: Transpose_1308
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1308
+
+Transformed Layer Name: Convolution_253
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_253
+
+Transformed Layer Name: Transpose_252
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_252
+
+Transformed Layer Name: Transpose_1304
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1304
+
+Transformed Layer Name: Transpose_1302
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1302
+
+Transformed Layer Name: Transpose_1300
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1300
+
+Transformed Layer Name: Convolution_244
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_244
+
+Transformed Layer Name: Transpose_243
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_243
+
+Transformed Layer Name: Transpose_1346
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1346
+
+Transformed Layer Name: Transpose_1344
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1344
+
+Transformed Layer Name: Convolution_296
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_296
+
+Transformed Layer Name: Transpose_295
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_295
+
+Transformed Layer Name: Transpose_1340
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1340
+
+Transformed Layer Name: Transpose_1338
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1338
+
+Transformed Layer Name: Transpose_1336
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1336
+
+Transformed Layer Name: Convolution_287
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_287
+
+Transformed Layer Name: Transpose_286
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_286
+
+Transformed Layer Name: Transpose_1332
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1332
+
+Transformed Layer Name: Transpose_1330
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1330
+
+Transformed Layer Name: Transpose_1328
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1328
+
+Transformed Layer Name: Convolution_278
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_278
+
+Transformed Layer Name: Transpose_277
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_277
+
+Transformed Layer Name: Transpose_1374
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1374
+
+Transformed Layer Name: Transpose_1372
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1372
+
+Transformed Layer Name: Convolution_330
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_330
+
+Transformed Layer Name: Transpose_329
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_329
+
+Transformed Layer Name: Transpose_1368
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1368
+
+Transformed Layer Name: Transpose_1366
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1366
+
+Transformed Layer Name: Transpose_1364
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1364
+
+Transformed Layer Name: Convolution_321
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_321
+
+Transformed Layer Name: Transpose_320
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_320
+
+Transformed Layer Name: Transpose_1360
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1360
+
+Transformed Layer Name: Transpose_1358
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1358
+
+Transformed Layer Name: Transpose_1356
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1356
+
+Transformed Layer Name: Convolution_312
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_312
+
+Transformed Layer Name: Transpose_311
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_311
+
+Transformed Layer Name: Transpose_1417
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1417
+
+Transformed Layer Name: Transpose_1415
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1415
+
+Transformed Layer Name: Convolution_405
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_405
+
+Transformed Layer Name: Transpose_404
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_404
+
+Transformed Layer Name: Transpose_1411
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1411
+
+Transformed Layer Name: Transpose_1409
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1409
+
+Transformed Layer Name: Transpose_1407
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1407
+
+Transformed Layer Name: Convolution_396
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_396
+
+Transformed Layer Name: Transpose_395
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_395
+
+Transformed Layer Name: Transpose_1388
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1388
+
+Transformed Layer Name: Transpose_1386
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1386
+
+Transformed Layer Name: Transpose_1384
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1384
+
+Transformed Layer Name: Convolution_371
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_371
+
+Transformed Layer Name: Transpose_370
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_370
+
+Transformed Layer Name: Transpose_1466
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1466
+
+Transformed Layer Name: Transpose_1464
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1464
+
+Transformed Layer Name: Convolution_439
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_439
+
+Transformed Layer Name: Transpose_438
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_438
+
+Transformed Layer Name: Transpose_1460
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1460
+
+Transformed Layer Name: Transpose_1458
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1458
+
+Transformed Layer Name: Transpose_1456
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1456
+
+Transformed Layer Name: Convolution_430
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_430
+
+Transformed Layer Name: Transpose_429
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_429
+
+Transformed Layer Name: Transpose_1452
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1452
+
+Transformed Layer Name: Transpose_1450
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1450
+
+Transformed Layer Name: Transpose_1448
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1448
+
+Transformed Layer Name: Convolution_421
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_421
+
+Transformed Layer Name: Transpose_420
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_420
+
+Transformed Layer Name: Transpose_1494
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1494
+
+Transformed Layer Name: Transpose_1492
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1492
+
+Transformed Layer Name: Convolution_473
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_473
+
+Transformed Layer Name: Transpose_472
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_472
+
+Transformed Layer Name: Transpose_1488
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1488
+
+Transformed Layer Name: Transpose_1486
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1486
+
+Transformed Layer Name: Transpose_1484
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1484
+
+Transformed Layer Name: Convolution_464
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_464
+
+Transformed Layer Name: Transpose_463
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_463
+
+Transformed Layer Name: Transpose_1480
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1480
+
+Transformed Layer Name: Transpose_1478
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1478
+
+Transformed Layer Name: Transpose_1476
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1476
+
+Transformed Layer Name: Convolution_455
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_455
+
+Transformed Layer Name: Transpose_454
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_454
+
+Transformed Layer Name: Transpose_1522
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1522
+
+Transformed Layer Name: Transpose_1520
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1520
+
+Transformed Layer Name: Convolution_507
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_507
+
+Transformed Layer Name: Transpose_506
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_506
+
+Transformed Layer Name: Transpose_1516
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1516
+
+Transformed Layer Name: Transpose_1514
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1514
+
+Transformed Layer Name: Transpose_1512
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1512
+
+Transformed Layer Name: Convolution_498
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_498
+
+Transformed Layer Name: Transpose_497
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_497
+
+Transformed Layer Name: Transpose_1508
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1508
+
+Transformed Layer Name: Transpose_1506
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1506
+
+Transformed Layer Name: Transpose_1504
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1504
+
+Transformed Layer Name: Convolution_489
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_489
+
+Transformed Layer Name: Transpose_488
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_488
+
+Transformed Layer Name: Transpose_1550
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1550
+
+Transformed Layer Name: Transpose_1548
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1548
+
+Transformed Layer Name: Convolution_541
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_541
+
+Transformed Layer Name: Transpose_540
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_540
+
+Transformed Layer Name: Transpose_1544
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1544
+
+Transformed Layer Name: Transpose_1542
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1542
+
+Transformed Layer Name: Transpose_1540
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1540
+
+Transformed Layer Name: Convolution_532
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_532
+
+Transformed Layer Name: Transpose_531
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_531
+
+Transformed Layer Name: Transpose_1536
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1536
+
+Transformed Layer Name: Transpose_1534
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1534
+
+Transformed Layer Name: Transpose_1532
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1532
+
+Transformed Layer Name: Convolution_523
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_523
+
+Transformed Layer Name: Transpose_522
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_522
+
+Transformed Layer Name: Transpose_1578
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1578
+
+Transformed Layer Name: Transpose_1576
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1576
+
+Transformed Layer Name: Convolution_575
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_575
+
+Transformed Layer Name: Transpose_574
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_574
+
+Transformed Layer Name: Transpose_1572
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1572
+
+Transformed Layer Name: Transpose_1570
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1570
+
+Transformed Layer Name: Transpose_1568
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1568
+
+Transformed Layer Name: Convolution_566
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_566
+
+Transformed Layer Name: Transpose_565
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_565
+
+Transformed Layer Name: Transpose_1564
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1564
+
+Transformed Layer Name: Transpose_1562
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1562
+
+Transformed Layer Name: Transpose_1560
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1560
+
+Transformed Layer Name: Convolution_557
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_557
+
+Transformed Layer Name: Transpose_556
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_556
+
+Transformed Layer Name: Transpose_1621
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1621
+
+Transformed Layer Name: Transpose_1619
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1619
+
+Transformed Layer Name: Convolution_650
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_650
+
+Transformed Layer Name: Transpose_649
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_649
+
+Transformed Layer Name: Transpose_1615
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1615
+
+Transformed Layer Name: Transpose_1613
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1613
+
+Transformed Layer Name: Transpose_1611
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1611
+
+Transformed Layer Name: Convolution_641
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_641
+
+Transformed Layer Name: Transpose_640
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_640
+
+Transformed Layer Name: Transpose_1592
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1592
+
+Transformed Layer Name: Transpose_1590
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1590
+
+Transformed Layer Name: Transpose_1588
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1588
+
+Transformed Layer Name: Convolution_616
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_616
+
+Transformed Layer Name: Transpose_615
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_615
+
+Transformed Layer Name: Transpose_1670
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1670
+
+Transformed Layer Name: Transpose_1668
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1668
+
+Transformed Layer Name: Convolution_684
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_684
+
+Transformed Layer Name: Transpose_683
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_683
+
+Transformed Layer Name: Transpose_1664
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1664
+
+Transformed Layer Name: Transpose_1662
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1662
+
+Transformed Layer Name: Transpose_1660
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1660
+
+Transformed Layer Name: Convolution_675
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_675
+
+Transformed Layer Name: Transpose_674
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_674
+
+Transformed Layer Name: Transpose_1656
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1656
+
+Transformed Layer Name: Transpose_1654
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1654
+
+Transformed Layer Name: Transpose_1652
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1652
+
+Transformed Layer Name: Convolution_666
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_666
+
+Transformed Layer Name: Transpose_665
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_665
+
+Transformed Layer Name: Transpose_1698
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1698
+
+Transformed Layer Name: Transpose_1696
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1696
+
+Transformed Layer Name: Convolution_718
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_718
+
+Transformed Layer Name: Transpose_717
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_717
+
+Transformed Layer Name: Transpose_1692
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1692
+
+Transformed Layer Name: Transpose_1690
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1690
+
+Transformed Layer Name: Transpose_1688
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1688
+
+Transformed Layer Name: Convolution_709
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_709
+
+Transformed Layer Name: Transpose_708
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_708
+
+Transformed Layer Name: Transpose_1684
+- Type:      Relu
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1684
+
+Transformed Layer Name: Transpose_1682
+- Type:      Add
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1682
+
+Transformed Layer Name: Transpose_1680
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_1680
+
+Transformed Layer Name: Convolution_700
+- Type:      Convolution
+- FPGA Support: True
+- Original Layer Name:
+  - Convolution_700
+
+Transformed Layer Name: Transpose_699
+- Type:      Constant
+- FPGA Support: True
+- Original Layer Name:
+  - Transpose_699
+
