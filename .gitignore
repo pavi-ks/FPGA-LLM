@@ -1,0 +1,9 @@
+# Ignore all large binaries and images
+*.bin
+*.pb
+*.cpio
+*.wic
+*.jic
+
+# Ignore large demo folders
+demo/
