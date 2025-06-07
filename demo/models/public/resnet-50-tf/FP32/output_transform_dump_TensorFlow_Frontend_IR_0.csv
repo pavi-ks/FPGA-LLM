@@ -1,0 +1,2 @@
+ ;batch dim;channel dim;height dim;width dim;depth dim;batch offset;channel offset;height offset;width offset;depth offset;
+output 0 tensor 0;1;1024;1;1;1;0;0;0;0;0;

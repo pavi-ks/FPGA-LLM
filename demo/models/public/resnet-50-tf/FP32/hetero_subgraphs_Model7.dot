@@ -1,0 +1,9 @@
+digraph 
+{
+    DeviceSubgraph_4042 [shape=box color=black label="DeviceSubgraph_4042\nhetero::DeviceSubgraph\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Result_4044 [shape=box color=crimson penwidth=1.5 label="Result_4044\nopset1::Result\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    DeviceSubgraph_4042 -> Result_4044
+    CLONE_0[ shape="box"  style="dashed"  color="blue"  label="Parameter_4041\nopset1::Parameter
+{f32}[1,3,224,224]" ]
+    CLONE_0 -> DeviceSubgraph_4042
+}

@@ -1,0 +1,835 @@
+digraph 
+{
+    Softmax_1181 [shape=box color=black label="softmax_tensor\nSoftmax_1181\nopset8::Softmax\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Result_1182 [shape=box color=crimson penwidth=1.5 label="softmax_tensor:0\nResult_1182\nopset1::Result\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Softmax_1181 -> Result_1182
+    Add_1180 [shape=box color=black label="resnet_model/dense/BiasAdd\nAdd_1180\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_1180 -> Softmax_1181
+    MatMul_1178 [shape=box color=black label="resnet_model/dense/MatMul\nMatMul_1178\nopset1::MatMul\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    MatMul_1178 -> Add_1180
+    CLONE_0[ shape="box"  style="dashed"  color="black"  label="Constant_3840\nConstant_1179\nopset1::Constant
+{f32}[1,1001]
+value: [ -0.0179934, -0.00703057, -0.00923136, -0.00804031, -0.0273049, 0.00217751, -0.00945961, ... ]" ]
+    CLONE_0 -> Add_1180
+    Squeeze_1176 [shape=box color=black label="Transpose_1712\nSqueeze_1176\nopset1::Squeeze\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Squeeze_1176 -> MatMul_1178
+    CLONE_1[ shape="box"  style="dashed"  color="black"  label="Transpose_3764\nConstant_1177\nopset1::Constant
+{f32}[1001,2048]
+value: [ -0.00549414, -0.00298893, -0.00305112, -0.00269899, -0.0025213, -0.00534045, -0.00382516, ... ]" ]
+    CLONE_1 -> MatMul_1178
+    ReduceMean_1174 [shape=box color=black label="Transpose_1708\nReduceMean_1174\nopset1::ReduceMean\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    ReduceMean_1174 -> Squeeze_1176
+    CLONE_2[ shape="box"  style="dashed"  color="black"  label="Constant_1710\nConstant_1175\nopset1::Constant
+{i32}[2]
+value: [ 2, 3 ]" ]
+    CLONE_2 -> Squeeze_1176
+    Relu_1172 [shape=box color=black label="Transpose_1704\nRelu_1172\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_1172 -> ReduceMean_1174
+    CLONE_3[ shape="box"  style="dashed"  color="black"  label="Constant_1706\nConstant_1173\nopset1::Constant
+{i32}[2]
+value: [ 2, 3 ]" ]
+    CLONE_3 -> ReduceMean_1174
+    Add_1171 [shape=box color=black label="Transpose_1702\nAdd_1171\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_1171 -> Relu_1172
+    Add_1170 [shape=box color=black label="Transpose_1698\nAdd_1170\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_1170 -> Add_1171
+    Relu_1156 [shape=box color=black label="Transpose_1676\nRelu_1156\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_1156 -> Add_1171
+    Add_1155 [shape=box color=black label="Transpose_1674\nAdd_1155\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_1155 -> Relu_1156
+    Add_1154 [shape=box color=black label="Transpose_1670\nAdd_1154\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_1154 -> Add_1155
+    Relu_1140 [shape=box color=black label="Transpose_1648\nRelu_1140\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_1140 -> Add_1155
+    Add_1139 [shape=box color=black label="Transpose_1646\nAdd_1139\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_1139 -> Relu_1140
+    Add_1134 [shape=box color=black label="Transpose_1621\nAdd_1134\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_1134 -> Add_1139
+    Add_1138 [shape=box color=black label="Transpose_1642\nAdd_1138\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_1138 -> Add_1139
+    Convolution_1136 [shape=box color=black label="Convolution_601\nConvolution_1136\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_1136 -> Add_1138
+    CLONE_4[ shape="box"  style="dashed"  color="black"  label="Transpose_1640\nConstant_1137\nopset1::Constant
+{f32}[1,2048,1,1]
+value: [ 0.380957, 0.529851, -1.0358, 0.0648132, 0.564539, -0.988145, -1.03113, ... ]" ]
+    CLONE_4 -> Add_1138
+    Relu_1120 [shape=box color=black label="Transpose_1584\nRelu_1120\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_1120 -> Convolution_1136
+    CLONE_5[ shape="box"  style="dashed"  color="black"  label="Transpose_600\nConstant_1135\nopset1::Constant
+{f32}[2048,1024,1,1]
+value: [ 0.0339447, -0.0958288, 0.0151025, 0.104359, -0.0243887, -0.0131234, 0.087512, ... ]" ]
+    CLONE_5 -> Convolution_1136
+    Add_1119 [shape=box color=black label="Transpose_1582\nAdd_1119\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_1119 -> Relu_1120
+    Add_1118 [shape=box color=black label="Transpose_1578\nAdd_1118\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_1118 -> Add_1119
+    Relu_1104 [shape=box color=black label="Transpose_1556\nRelu_1104\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_1104 -> Add_1119
+    Add_1103 [shape=box color=black label="Transpose_1554\nAdd_1103\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_1103 -> Relu_1104
+    Add_1102 [shape=box color=black label="Transpose_1550\nAdd_1102\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_1102 -> Add_1103
+    Relu_1088 [shape=box color=black label="Transpose_1528\nRelu_1088\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_1088 -> Add_1103
+    Add_1087 [shape=box color=black label="Transpose_1526\nAdd_1087\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_1087 -> Relu_1088
+    Add_1086 [shape=box color=black label="Transpose_1522\nAdd_1086\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_1086 -> Add_1087
+    Relu_1072 [shape=box color=black label="Transpose_1500\nRelu_1072\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_1072 -> Add_1087
+    Add_1071 [shape=box color=black label="Transpose_1498\nAdd_1071\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_1071 -> Relu_1072
+    Add_1070 [shape=box color=black label="Transpose_1494\nAdd_1070\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_1070 -> Add_1071
+    Relu_1056 [shape=box color=black label="Transpose_1472\nRelu_1056\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_1056 -> Add_1071
+    Add_1055 [shape=box color=black label="Transpose_1470\nAdd_1055\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_1055 -> Relu_1056
+    Add_1054 [shape=box color=black label="Transpose_1466\nAdd_1054\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_1054 -> Add_1055
+    Relu_1040 [shape=box color=black label="Transpose_1444\nRelu_1040\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_1040 -> Add_1055
+    Add_1039 [shape=box color=black label="Transpose_1442\nAdd_1039\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_1039 -> Relu_1040
+    Add_1034 [shape=box color=black label="Transpose_1417\nAdd_1034\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_1034 -> Add_1039
+    Add_1038 [shape=box color=black label="Transpose_1438\nAdd_1038\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_1038 -> Add_1039
+    Convolution_1036 [shape=box color=black label="Convolution_356\nConvolution_1036\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_1036 -> Add_1038
+    CLONE_6[ shape="box"  style="dashed"  color="black"  label="Transpose_1436\nConstant_1037\nopset1::Constant
+{f32}[1,1024,1,1]
+value: [ -1.37789, 0.442983, 1.57809, 1.01422, 1.12419, -1.29193, 1.62974, ... ]" ]
+    CLONE_6 -> Add_1038
+    Relu_1020 [shape=box color=black label="Transpose_1380\nRelu_1020\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_1020 -> Convolution_1036
+    CLONE_7[ shape="box"  style="dashed"  color="black"  label="Transpose_355\nConstant_1035\nopset1::Constant
+{f32}[1024,512,1,1]
+value: [ -0.00176161, 0.007493, 0.0136366, 0.0403262, 0.0376586, 0.0128982, -0.0106376, ... ]" ]
+    CLONE_7 -> Convolution_1036
+    Add_1019 [shape=box color=black label="Transpose_1378\nAdd_1019\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_1019 -> Relu_1020
+    Add_1018 [shape=box color=black label="Transpose_1374\nAdd_1018\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_1018 -> Add_1019
+    Relu_1004 [shape=box color=black label="Transpose_1352\nRelu_1004\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_1004 -> Add_1019
+    Add_1003 [shape=box color=black label="Transpose_1350\nAdd_1003\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_1003 -> Relu_1004
+    Add_1002 [shape=box color=black label="Transpose_1346\nAdd_1002\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_1002 -> Add_1003
+    Relu_988 [shape=box color=black label="Transpose_1324\nRelu_988\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_988 -> Add_1003
+    Add_987 [shape=box color=black label="Transpose_1322\nAdd_987\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_987 -> Relu_988
+    Add_986 [shape=box color=black label="Transpose_1318\nAdd_986\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_986 -> Add_987
+    Relu_972 [shape=box color=black label="Transpose_1296\nRelu_972\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_972 -> Add_987
+    Add_971 [shape=box color=black label="Transpose_1294\nAdd_971\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_971 -> Relu_972
+    Add_966 [shape=box color=black label="Transpose_1269\nAdd_966\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_966 -> Add_971
+    Add_970 [shape=box color=black label="Transpose_1290\nAdd_970\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_970 -> Add_971
+    Convolution_968 [shape=box color=black label="Convolution_179\nConvolution_968\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_968 -> Add_970
+    CLONE_8[ shape="box"  style="dashed"  color="black"  label="Transpose_1288\nConstant_969\nopset1::Constant
+{f32}[1,512,1,1]
+value: [ 0.213859, 0.0540937, 2.73309, -2.27542, 0.156447, 0.219394, 0.349622, ... ]" ]
+    CLONE_8 -> Add_970
+    Relu_952 [shape=box color=black label="Transpose_1232\nRelu_952\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_952 -> Convolution_968
+    CLONE_9[ shape="box"  style="dashed"  color="black"  label="Transpose_178\nConstant_967\nopset1::Constant
+{f32}[512,256,1,1]
+value: [ 0.00477991, 0.0229313, 0.00889421, 0.00336246, -0.0212985, -0.0816028, 0.0775175, ... ]" ]
+    CLONE_9 -> Convolution_968
+    Add_951 [shape=box color=black label="Transpose_1230\nAdd_951\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_951 -> Relu_952
+    Add_950 [shape=box color=black label="Transpose_1226\nAdd_950\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_950 -> Add_951
+    Relu_936 [shape=box color=black label="Transpose_1204\nRelu_936\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_936 -> Add_951
+    Add_935 [shape=box color=black label="Transpose_1202\nAdd_935\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_935 -> Relu_936
+    Add_934 [shape=box color=black label="Transpose_1198\nAdd_934\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_934 -> Add_935
+    Relu_920 [shape=box color=black label="Transpose_1176\nRelu_920\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_920 -> Add_935
+    Add_919 [shape=box color=black label="Transpose_1174\nAdd_919\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_919 -> Relu_920
+    Add_914 [shape=box color=black label="Transpose_1164\nAdd_914\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_914 -> Add_919
+    Add_918 [shape=box color=black label="Transpose_1170\nAdd_918\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_918 -> Add_919
+    Convolution_916 [shape=box color=black label="Convolution_53\nConvolution_916\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_916 -> Add_918
+    CLONE_10[ shape="box"  style="dashed"  color="black"  label="Transpose_1168\nConstant_917\nopset1::Constant
+{f32}[1,256,1,1]
+value: [ 2.24773, 0.987577, 0.863518, 0.837523, -1.83822, 2.18397, 4.22175, ... ]" ]
+    CLONE_10 -> Add_918
+    MaxPool_900 [shape=box color=black label="MaxPool_46\nMaxPool_900\nopset8::MaxPool\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    MaxPool_900 -> Convolution_916
+    CLONE_11[ shape="box"  style="dashed"  color="black"  label="Transpose_52\nConstant_915\nopset1::Constant
+{f32}[256,64,1,1]
+value: [ -0.0673201, 0.00199792, 0.0163579, -0.00286227, -0.0361799, -0.0327532, 0.0873235, ... ]" ]
+    CLONE_11 -> Convolution_916
+    Relu_899 [shape=box color=black label="Transpose_1142\nRelu_899\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_899 -> MaxPool_900
+    Add_898 [shape=box color=black label="Transpose_1140\nAdd_898\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_898 -> Relu_899
+    Convolution_896 [shape=box color=black label="Convolution_39\nConvolution_896\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_896 -> Add_898
+    CLONE_12[ shape="box"  style="dashed"  color="black"  label="Transpose_1138\nConstant_897\nopset1::Constant
+{f32}[1,64,1,1]
+value: [ 3.35704, -1.50758, 1.75804, 3.51075, -0.732482, 1.82215, 1.09052, ... ]" ]
+    CLONE_12 -> Add_898
+    Add_894 [shape=box color=black label="Subtract_3611\nAdd_894\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_894 -> Convolution_896
+    CLONE_13[ shape="box"  style="dashed"  color="black"  label="Gather_3839\nConstant_895\nopset1::Constant
+{f32}[64,3,7,7]
+value: [ 0.000237391, 0.000961402, 0.00117077, -6.12198e-05, -0.000133846, -0.000742119, -0.000317525, ... ]" ]
+    CLONE_13 -> Convolution_896
+    Transpose_892 [shape=box color=black label="Subtract_2053\nTranspose_892\nopset1::Transpose\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Transpose_892 -> Add_894
+    CLONE_14[ shape="box"  style="dashed"  color="black"  label="Gather_3836\nConstant_893\nopset1::Constant
+{f32}[1,3,1,1]
+value: [ -103.94, -116.78, -123.68 ]" ]
+    CLONE_14 -> Add_894
+    Transpose_890 [shape=box color=black label="Transpose_589\nTranspose_890\nopset1::Transpose\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Transpose_890 -> Transpose_892
+    CLONE_15[ shape="box"  style="dashed"  color="black"  label="Constant_2024\nConstant_891\nopset1::Constant
+{i64}[4]
+value: [ 0, 3, 1, 2 ]" ]
+    CLONE_15 -> Transpose_892
+    CLONE_16[ shape="box"  style="dashed"  color="blue"  label="map/TensorArrayStack/TensorArrayGatherV3\nParameter_4043\nopset1::Parameter
+{f32}[1,3,224,224]\nsubgraph=0\ndevice=FPGA"  fillcolor=aliceblue style=filled ]
+    CLONE_16 -> Transpose_890
+    CLONE_17[ shape="box"  style="dashed"  color="black"  label="Constant_588\nConstant_889\nopset1::Constant
+{i64}[4]
+value: [ 0, 2, 3, 1 ]" ]
+    CLONE_17 -> Transpose_890
+    Convolution_912 [shape=box color=black label="Convolution_85\nConvolution_912\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_912 -> Add_914
+    CLONE_18[ shape="box"  style="dashed"  color="black"  label="Transpose_1162\nConstant_913\nopset1::Constant
+{f32}[1,256,1,1]
+value: [ -0.639971, -0.577914, 1.32856, 0.245134, -1.86944, 0.217315, 1.3392, ... ]" ]
+    CLONE_18 -> Add_914
+    Relu_910 [shape=box color=black label="Transpose_1158\nRelu_910\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_910 -> Convolution_912
+    CLONE_19[ shape="box"  style="dashed"  color="black"  label="Transpose_84\nConstant_911\nopset1::Constant
+{f32}[256,64,1,1]
+value: [ -0.016607, -0.163018, -0.0228783, 0.0356923, 0.0973628, -0.129335, -0.0484953, ... ]" ]
+    CLONE_19 -> Convolution_912
+    Add_909 [shape=box color=black label="Transpose_1156\nAdd_909\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_909 -> Relu_910
+    Convolution_907 [shape=box color=black label="Convolution_76\nConvolution_907\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_907 -> Add_909
+    CLONE_20[ shape="box"  style="dashed"  color="black"  label="Transpose_1154\nConstant_908\nopset1::Constant
+{f32}[1,64,1,1]
+value: [ 0.317126, 4.88779, 0.911709, 1.01551, -0.694597, 3.91566, 2.19979, ... ]" ]
+    CLONE_20 -> Add_909
+    Relu_905 [shape=box color=black label="Transpose_1150\nRelu_905\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_905 -> Convolution_907
+    CLONE_21[ shape="box"  style="dashed"  color="black"  label="Transpose_75\nConstant_906\nopset1::Constant
+{f32}[64,64,3,3]
+value: [ 0.00728916, 0.00749441, 0.00879627, 0.038643, -0.0363649, -0.0231543, 0.0146116, ... ]" ]
+    CLONE_21 -> Convolution_907
+    Add_904 [shape=box color=black label="Transpose_1148\nAdd_904\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_904 -> Relu_905
+    Convolution_902 [shape=box color=black label="Convolution_67\nConvolution_902\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_902 -> Add_904
+    CLONE_22[ shape="box"  style="dashed"  color="black"  label="Transpose_1146\nConstant_903\nopset1::Constant
+{f32}[1,64,1,1]
+value: [ 2.76025, 2.56101, -0.279988, 1.92682, 4.019, 1.76602, 2.84393, ... ]" ]
+    CLONE_22 -> Add_904
+    MaxPool_900 -> Convolution_902
+    CLONE_23[ shape="box"  style="dashed"  color="black"  label="Transpose_66\nConstant_901\nopset1::Constant
+{f32}[64,64,1,1]
+value: [ -0.0184969, 0.0462144, -0.132115, 0.09078, -0.0476073, 0.0910809, 0.000400246, ... ]" ]
+    CLONE_23 -> Convolution_902
+    Convolution_932 [shape=box color=black label="Convolution_119\nConvolution_932\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_932 -> Add_934
+    CLONE_24[ shape="box"  style="dashed"  color="black"  label="Transpose_1196\nConstant_933\nopset1::Constant
+{f32}[1,256,1,1]
+value: [ 0.50243, 1.5678, 0.477474, 1.77865, 0.323861, -3.0348, -0.257163, ... ]" ]
+    CLONE_24 -> Add_934
+    Relu_930 [shape=box color=black label="Transpose_1192\nRelu_930\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_930 -> Convolution_932
+    CLONE_25[ shape="box"  style="dashed"  color="black"  label="Transpose_118\nConstant_931\nopset1::Constant
+{f32}[256,64,1,1]
+value: [ 0.00356479, -0.00650308, 0.0201505, -0.00251631, -0.0544312, -0.0919816, 0.101235, ... ]" ]
+    CLONE_25 -> Convolution_932
+    Add_929 [shape=box color=black label="Transpose_1190\nAdd_929\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_929 -> Relu_930
+    Convolution_927 [shape=box color=black label="Convolution_110\nConvolution_927\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_927 -> Add_929
+    CLONE_26[ shape="box"  style="dashed"  color="black"  label="Transpose_1188\nConstant_928\nopset1::Constant
+{f32}[1,64,1,1]
+value: [ 2.03624, 0.266704, 2.31602, 0.180092, -1.06619, -0.206963, 0.357734, ... ]" ]
+    CLONE_26 -> Add_929
+    Relu_925 [shape=box color=black label="Transpose_1184\nRelu_925\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_925 -> Convolution_927
+    CLONE_27[ shape="box"  style="dashed"  color="black"  label="Transpose_109\nConstant_926\nopset1::Constant
+{f32}[64,64,3,3]
+value: [ -0.00328192, -0.00348666, -0.0151602, -0.0209496, 0.0129604, -0.0637628, 0.0256816, ... ]" ]
+    CLONE_27 -> Convolution_927
+    Add_924 [shape=box color=black label="Transpose_1182\nAdd_924\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_924 -> Relu_925
+    Convolution_922 [shape=box color=black label="Convolution_101\nConvolution_922\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_922 -> Add_924
+    CLONE_28[ shape="box"  style="dashed"  color="black"  label="Transpose_1180\nConstant_923\nopset1::Constant
+{f32}[1,64,1,1]
+value: [ 0.899137, 1.1807, -0.454, 0.0551208, -2.11465, 0.56752, 1.80112, ... ]" ]
+    CLONE_28 -> Add_924
+    Relu_920 -> Convolution_922
+    CLONE_29[ shape="box"  style="dashed"  color="black"  label="Transpose_100\nConstant_921\nopset1::Constant
+{f32}[64,256,1,1]
+value: [ 0.0210931, 0.00098003, -0.0595247, 0.023686, -0.0443246, -0.00882315, -0.0148458, ... ]" ]
+    CLONE_29 -> Convolution_922
+    Convolution_948 [shape=box color=black label="Convolution_153\nConvolution_948\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_948 -> Add_950
+    CLONE_30[ shape="box"  style="dashed"  color="black"  label="Transpose_1224\nConstant_949\nopset1::Constant
+{f32}[1,256,1,1]
+value: [ 0.21604, -0.285726, 0.10009, -1.71846, -2.96288, -0.201325, -0.0112269, ... ]" ]
+    CLONE_30 -> Add_950
+    Relu_946 [shape=box color=black label="Transpose_1220\nRelu_946\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_946 -> Convolution_948
+    CLONE_31[ shape="box"  style="dashed"  color="black"  label="Transpose_152\nConstant_947\nopset1::Constant
+{f32}[256,64,1,1]
+value: [ 0.000877774, 0.000921404, -0.000428953, -9.10371e-05, -0.00131183, 0.000912155, 0.00192332, ... ]" ]
+    CLONE_31 -> Convolution_948
+    Add_945 [shape=box color=black label="Transpose_1218\nAdd_945\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_945 -> Relu_946
+    Convolution_943 [shape=box color=black label="Convolution_144\nConvolution_943\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_943 -> Add_945
+    CLONE_32[ shape="box"  style="dashed"  color="black"  label="Transpose_1216\nConstant_944\nopset1::Constant
+{f32}[1,64,1,1]
+value: [ 1.23841, 1.50831, -0.686553, -0.855775, 1.24445, 0.636896, -0.484415, ... ]" ]
+    CLONE_32 -> Add_945
+    Relu_941 [shape=box color=black label="Transpose_1212\nRelu_941\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_941 -> Convolution_943
+    CLONE_33[ shape="box"  style="dashed"  color="black"  label="Transpose_143\nConstant_942\nopset1::Constant
+{f32}[64,64,3,3]
+value: [ -0.0444391, -0.0453914, 0.0128967, -0.0244693, 0.0901591, -0.0504874, -0.0287622, ... ]" ]
+    CLONE_33 -> Convolution_943
+    Add_940 [shape=box color=black label="Transpose_1210\nAdd_940\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_940 -> Relu_941
+    Convolution_938 [shape=box color=black label="Convolution_135\nConvolution_938\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_938 -> Add_940
+    CLONE_34[ shape="box"  style="dashed"  color="black"  label="Transpose_1208\nConstant_939\nopset1::Constant
+{f32}[1,64,1,1]
+value: [ -0.345983, -0.237085, -1.61126, 1.179, -1.57187, 1.13102, -0.763824, ... ]" ]
+    CLONE_34 -> Add_940
+    Relu_936 -> Convolution_938
+    CLONE_35[ shape="box"  style="dashed"  color="black"  label="Transpose_134\nConstant_937\nopset1::Constant
+{f32}[64,256,1,1]
+value: [ -0.00167774, -0.0158547, -0.00610492, -0.0495861, -0.0203295, 0.0205061, 0.0158362, ... ]" ]
+    CLONE_35 -> Convolution_938
+    Convolution_964 [shape=box color=black label="Convolution_228\nConvolution_964\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_964 -> Add_966
+    CLONE_36[ shape="box"  style="dashed"  color="black"  label="Transpose_1267\nConstant_965\nopset1::Constant
+{f32}[1,512,1,1]
+value: [ -0.512069, 2.49312, -0.293297, -1.20936, 0.413594, 0.67595, -0.331081, ... ]" ]
+    CLONE_36 -> Add_966
+    Relu_962 [shape=box color=black label="Transpose_1263\nRelu_962\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_962 -> Convolution_964
+    CLONE_37[ shape="box"  style="dashed"  color="black"  label="Transpose_227\nConstant_963\nopset1::Constant
+{f32}[512,128,1,1]
+value: [ -0.072354, 0.0581515, -0.00692673, -0.144669, -0.0556974, 0.0853896, 0.0351269, ... ]" ]
+    CLONE_37 -> Convolution_964
+    Add_961 [shape=box color=black label="Transpose_1261\nAdd_961\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_961 -> Relu_962
+    Convolution_959 [shape=box color=black label="Convolution_219\nConvolution_959\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_959 -> Add_961
+    CLONE_38[ shape="box"  style="dashed"  color="black"  label="Transpose_1259\nConstant_960\nopset1::Constant
+{f32}[1,128,1,1]
+value: [ 1.44344, 1.46697, -0.0809007, 1.38183, -0.460475, 0.997082, -0.0733308, ... ]" ]
+    CLONE_38 -> Add_961
+    Relu_957 [shape=box color=black label="Transpose_1240\nRelu_957\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_957 -> Convolution_959
+    CLONE_39[ shape="box"  style="dashed"  color="black"  label="Transpose_218\nConstant_958\nopset1::Constant
+{f32}[128,128,3,3]
+value: [ 0.00842519, 0.00849198, 0.00951387, 0.0177185, 0.00225486, 0.027466, -0.0187881, ... ]" ]
+    CLONE_39 -> Convolution_959
+    Add_956 [shape=box color=black label="Transpose_1238\nAdd_956\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_956 -> Relu_957
+    Convolution_954 [shape=box color=black label="Convolution_194\nConvolution_954\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_954 -> Add_956
+    CLONE_40[ shape="box"  style="dashed"  color="black"  label="Transpose_1236\nConstant_955\nopset1::Constant
+{f32}[1,128,1,1]
+value: [ 0.0739346, 0.387752, -2.08852, -0.417288, 0.55066, 0.857079, 1.76313, ... ]" ]
+    CLONE_40 -> Add_956
+    Relu_952 -> Convolution_954
+    CLONE_41[ shape="box"  style="dashed"  color="black"  label="Transpose_193\nConstant_953\nopset1::Constant
+{f32}[128,256,1,1]
+value: [ -0.0118087, -0.000465245, -0.00356637, 0.0175401, -0.0213371, 0.0645643, 0.0473422, ... ]" ]
+    CLONE_41 -> Convolution_954
+    Convolution_984 [shape=box color=black label="Convolution_262\nConvolution_984\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_984 -> Add_986
+    CLONE_42[ shape="box"  style="dashed"  color="black"  label="Transpose_1316\nConstant_985\nopset1::Constant
+{f32}[1,512,1,1]
+value: [ 0.471929, 0.452355, 0.187611, -0.634701, -0.639882, -0.0274717, -0.954919, ... ]" ]
+    CLONE_42 -> Add_986
+    Relu_982 [shape=box color=black label="Transpose_1312\nRelu_982\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_982 -> Convolution_984
+    CLONE_43[ shape="box"  style="dashed"  color="black"  label="Transpose_261\nConstant_983\nopset1::Constant
+{f32}[512,128,1,1]
+value: [ 0.0222083, 0.00879128, 0.00270849, 0.165725, 0.028408, -0.0977317, -0.0810421, ... ]" ]
+    CLONE_43 -> Convolution_984
+    Add_981 [shape=box color=black label="Transpose_1310\nAdd_981\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_981 -> Relu_982
+    Convolution_979 [shape=box color=black label="Convolution_253\nConvolution_979\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_979 -> Add_981
+    CLONE_44[ shape="box"  style="dashed"  color="black"  label="Transpose_1308\nConstant_980\nopset1::Constant
+{f32}[1,128,1,1]
+value: [ 0.354951, -0.932924, -0.049469, -0.433241, 0.473162, -0.201696, -0.816491, ... ]" ]
+    CLONE_44 -> Add_981
+    Relu_977 [shape=box color=black label="Transpose_1304\nRelu_977\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_977 -> Convolution_979
+    CLONE_45[ shape="box"  style="dashed"  color="black"  label="Transpose_252\nConstant_978\nopset1::Constant
+{f32}[128,128,3,3]
+value: [ -0.0298404, -0.00785235, -0.00209326, -0.0160926, -0.00448225, -0.0108965, 0.023969, ... ]" ]
+    CLONE_45 -> Convolution_979
+    Add_976 [shape=box color=black label="Transpose_1302\nAdd_976\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_976 -> Relu_977
+    Convolution_974 [shape=box color=black label="Convolution_244\nConvolution_974\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_974 -> Add_976
+    CLONE_46[ shape="box"  style="dashed"  color="black"  label="Transpose_1300\nConstant_975\nopset1::Constant
+{f32}[1,128,1,1]
+value: [ 0.591129, -0.371782, -0.00189633, -1.62043, 1.21365, -0.81101, 0.21728, ... ]" ]
+    CLONE_46 -> Add_976
+    Relu_972 -> Convolution_974
+    CLONE_47[ shape="box"  style="dashed"  color="black"  label="Transpose_243\nConstant_973\nopset1::Constant
+{f32}[128,512,1,1]
+value: [ 0.00528866, 0.00314444, 0.0120791, 0.00997694, 0.00132765, -0.00689447, -0.000914111, ... ]" ]
+    CLONE_47 -> Convolution_974
+    Convolution_1000 [shape=box color=black label="Convolution_296\nConvolution_1000\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_1000 -> Add_1002
+    CLONE_48[ shape="box"  style="dashed"  color="black"  label="Transpose_1344\nConstant_1001\nopset1::Constant
+{f32}[1,512,1,1]
+value: [ 0.486663, -0.892926, -0.533191, -0.202941, -0.245778, -1.57406, 0.780172, ... ]" ]
+    CLONE_48 -> Add_1002
+    Relu_998 [shape=box color=black label="Transpose_1340\nRelu_998\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_998 -> Convolution_1000
+    CLONE_49[ shape="box"  style="dashed"  color="black"  label="Transpose_295\nConstant_999\nopset1::Constant
+{f32}[512,128,1,1]
+value: [ -0.00914948, -0.0233146, -0.0144901, 0.0164368, 0.00970196, -0.0137761, 0.00557022, ... ]" ]
+    CLONE_49 -> Convolution_1000
+    Add_997 [shape=box color=black label="Transpose_1338\nAdd_997\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_997 -> Relu_998
+    Convolution_995 [shape=box color=black label="Convolution_287\nConvolution_995\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_995 -> Add_997
+    CLONE_50[ shape="box"  style="dashed"  color="black"  label="Transpose_1336\nConstant_996\nopset1::Constant
+{f32}[1,128,1,1]
+value: [ -0.441444, 0.963538, -1.10932, -0.315537, -1.23166, 0.269461, 1.60374, ... ]" ]
+    CLONE_50 -> Add_997
+    Relu_993 [shape=box color=black label="Transpose_1332\nRelu_993\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_993 -> Convolution_995
+    CLONE_51[ shape="box"  style="dashed"  color="black"  label="Transpose_286\nConstant_994\nopset1::Constant
+{f32}[128,128,3,3]
+value: [ -0.0388017, 0.00225353, -0.0135804, -0.0487934, -0.0341879, 0.00349864, 0.0442427, ... ]" ]
+    CLONE_51 -> Convolution_995
+    Add_992 [shape=box color=black label="Transpose_1330\nAdd_992\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_992 -> Relu_993
+    Convolution_990 [shape=box color=black label="Convolution_278\nConvolution_990\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_990 -> Add_992
+    CLONE_52[ shape="box"  style="dashed"  color="black"  label="Transpose_1328\nConstant_991\nopset1::Constant
+{f32}[1,128,1,1]
+value: [ 0.751303, -0.537866, 0.00277566, -0.0701575, -0.0051854, -0.354626, -0.289072, ... ]" ]
+    CLONE_52 -> Add_992
+    Relu_988 -> Convolution_990
+    CLONE_53[ shape="box"  style="dashed"  color="black"  label="Transpose_277\nConstant_989\nopset1::Constant
+{f32}[128,512,1,1]
+value: [ 0.000877296, 0.0119295, -0.0160424, -0.00414278, 0.00625805, -0.0202636, 0.0369308, ... ]" ]
+    CLONE_53 -> Convolution_990
+    Convolution_1016 [shape=box color=black label="Convolution_330\nConvolution_1016\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_1016 -> Add_1018
+    CLONE_54[ shape="box"  style="dashed"  color="black"  label="Transpose_1372\nConstant_1017\nopset1::Constant
+{f32}[1,512,1,1]
+value: [ 0.123305, -0.535479, -0.261141, -0.281909, -0.0256687, -0.778036, -0.140265, ... ]" ]
+    CLONE_54 -> Add_1018
+    Relu_1014 [shape=box color=black label="Transpose_1368\nRelu_1014\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_1014 -> Convolution_1016
+    CLONE_55[ shape="box"  style="dashed"  color="black"  label="Transpose_329\nConstant_1015\nopset1::Constant
+{f32}[512,128,1,1]
+value: [ 0.00303536, -0.00365975, -0.00253837, -0.00318154, -0.0072735, -0.00221853, -0.00147371, ... ]" ]
+    CLONE_55 -> Convolution_1016
+    Add_1013 [shape=box color=black label="Transpose_1366\nAdd_1013\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_1013 -> Relu_1014
+    Convolution_1011 [shape=box color=black label="Convolution_321\nConvolution_1011\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_1011 -> Add_1013
+    CLONE_56[ shape="box"  style="dashed"  color="black"  label="Transpose_1364\nConstant_1012\nopset1::Constant
+{f32}[1,128,1,1]
+value: [ 0.119626, 0.0774452, -1.15638, -0.880678, -0.077414, -0.331312, -0.270408, ... ]" ]
+    CLONE_56 -> Add_1013
+    Relu_1009 [shape=box color=black label="Transpose_1360\nRelu_1009\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_1009 -> Convolution_1011
+    CLONE_57[ shape="box"  style="dashed"  color="black"  label="Transpose_320\nConstant_1010\nopset1::Constant
+{f32}[128,128,3,3]
+value: [ 0.013498, 0.0148906, -0.00298989, 0.0554745, 0.0214401, 0.0261928, 0.0447701, ... ]" ]
+    CLONE_57 -> Convolution_1011
+    Add_1008 [shape=box color=black label="Transpose_1358\nAdd_1008\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_1008 -> Relu_1009
+    Convolution_1006 [shape=box color=black label="Convolution_312\nConvolution_1006\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_1006 -> Add_1008
+    CLONE_58[ shape="box"  style="dashed"  color="black"  label="Transpose_1356\nConstant_1007\nopset1::Constant
+{f32}[1,128,1,1]
+value: [ -0.107748, -0.0362919, 1.07046, -2.86929, 0.0356257, -0.560389, -0.49191, ... ]" ]
+    CLONE_58 -> Add_1008
+    Relu_1004 -> Convolution_1006
+    CLONE_59[ shape="box"  style="dashed"  color="black"  label="Transpose_311\nConstant_1005\nopset1::Constant
+{f32}[128,512,1,1]
+value: [ 0.0471177, 0.0455931, 0.0272248, 0.0177069, 0.000766247, -0.010418, -0.0153285, ... ]" ]
+    CLONE_59 -> Convolution_1006
+    Convolution_1032 [shape=box color=black label="Convolution_405\nConvolution_1032\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_1032 -> Add_1034
+    CLONE_60[ shape="box"  style="dashed"  color="black"  label="Transpose_1415\nConstant_1033\nopset1::Constant
+{f32}[1,1024,1,1]
+value: [ 1.01567, -0.001884, 0.0124581, 0.253894, 1.90924, 2.88739, 0.76034, ... ]" ]
+    CLONE_60 -> Add_1034
+    Relu_1030 [shape=box color=black label="Transpose_1411\nRelu_1030\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_1030 -> Convolution_1032
+    CLONE_61[ shape="box"  style="dashed"  color="black"  label="Transpose_404\nConstant_1031\nopset1::Constant
+{f32}[1024,256,1,1]
+value: [ -0.0280679, -0.0428591, 0.160943, 0.0163388, 0.00122425, -0.0439866, -0.0649236, ... ]" ]
+    CLONE_61 -> Convolution_1032
+    Add_1029 [shape=box color=black label="Transpose_1409\nAdd_1029\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_1029 -> Relu_1030
+    Convolution_1027 [shape=box color=black label="Convolution_396\nConvolution_1027\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_1027 -> Add_1029
+    CLONE_62[ shape="box"  style="dashed"  color="black"  label="Transpose_1407\nConstant_1028\nopset1::Constant
+{f32}[1,256,1,1]
+value: [ -0.830338, 0.70121, 0.240395, -0.615359, 0.421431, -1.07368, -0.642356, ... ]" ]
+    CLONE_62 -> Add_1029
+    Relu_1025 [shape=box color=black label="Transpose_1388\nRelu_1025\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_1025 -> Convolution_1027
+    CLONE_63[ shape="box"  style="dashed"  color="black"  label="Transpose_395\nConstant_1026\nopset1::Constant
+{f32}[256,256,3,3]
+value: [ -0.0192603, -0.0562822, 0.022932, -0.0171569, -0.110083, 0.134871, -0.0219634, ... ]" ]
+    CLONE_63 -> Convolution_1027
+    Add_1024 [shape=box color=black label="Transpose_1386\nAdd_1024\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_1024 -> Relu_1025
+    Convolution_1022 [shape=box color=black label="Convolution_371\nConvolution_1022\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_1022 -> Add_1024
+    CLONE_64[ shape="box"  style="dashed"  color="black"  label="Transpose_1384\nConstant_1023\nopset1::Constant
+{f32}[1,256,1,1]
+value: [ -1.1177, -1.63311, -0.0740568, 0.138377, 0.0931943, 0.0842756, 0.636251, ... ]" ]
+    CLONE_64 -> Add_1024
+    Relu_1020 -> Convolution_1022
+    CLONE_65[ shape="box"  style="dashed"  color="black"  label="Transpose_370\nConstant_1021\nopset1::Constant
+{f32}[256,512,1,1]
+value: [ 0.0452488, -0.0400857, 0.065921, 0.0118006, -0.0323513, -0.0312399, 0.00691098, ... ]" ]
+    CLONE_65 -> Convolution_1022
+    Convolution_1052 [shape=box color=black label="Convolution_439\nConvolution_1052\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_1052 -> Add_1054
+    CLONE_66[ shape="box"  style="dashed"  color="black"  label="Transpose_1464\nConstant_1053\nopset1::Constant
+{f32}[1,1024,1,1]
+value: [ 0.0816536, -0.448077, 0.082321, -0.611751, 0.0874769, -0.396729, -0.404353, ... ]" ]
+    CLONE_66 -> Add_1054
+    Relu_1050 [shape=box color=black label="Transpose_1460\nRelu_1050\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_1050 -> Convolution_1052
+    CLONE_67[ shape="box"  style="dashed"  color="black"  label="Transpose_438\nConstant_1051\nopset1::Constant
+{f32}[1024,256,1,1]
+value: [ -0.00810285, 0.0297304, -0.00415295, -0.114068, 0.0421907, -0.123304, -0.0671811, ... ]" ]
+    CLONE_67 -> Convolution_1052
+    Add_1049 [shape=box color=black label="Transpose_1458\nAdd_1049\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_1049 -> Relu_1050
+    Convolution_1047 [shape=box color=black label="Convolution_430\nConvolution_1047\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_1047 -> Add_1049
+    CLONE_68[ shape="box"  style="dashed"  color="black"  label="Transpose_1456\nConstant_1048\nopset1::Constant
+{f32}[1,256,1,1]
+value: [ 1.12006, -0.563726, -0.623572, -0.793273, -0.343792, -0.195768, -0.11109, ... ]" ]
+    CLONE_68 -> Add_1049
+    Relu_1045 [shape=box color=black label="Transpose_1452\nRelu_1045\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_1045 -> Convolution_1047
+    CLONE_69[ shape="box"  style="dashed"  color="black"  label="Transpose_429\nConstant_1046\nopset1::Constant
+{f32}[256,256,3,3]
+value: [ -0.00677013, -5.28971e-06, -0.00169327, -0.00843778, -0.0088462, -0.00142244, -0.00628083, ... ]" ]
+    CLONE_69 -> Convolution_1047
+    Add_1044 [shape=box color=black label="Transpose_1450\nAdd_1044\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_1044 -> Relu_1045
+    Convolution_1042 [shape=box color=black label="Convolution_421\nConvolution_1042\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_1042 -> Add_1044
+    CLONE_70[ shape="box"  style="dashed"  color="black"  label="Transpose_1448\nConstant_1043\nopset1::Constant
+{f32}[1,256,1,1]
+value: [ -0.732199, -0.172002, -0.423298, 1.00285, -0.0881809, -0.27571, -0.349566, ... ]" ]
+    CLONE_70 -> Add_1044
+    Relu_1040 -> Convolution_1042
+    CLONE_71[ shape="box"  style="dashed"  color="black"  label="Transpose_420\nConstant_1041\nopset1::Constant
+{f32}[256,1024,1,1]
+value: [ -0.000795084, 0.0080233, 0.0402951, 0.00530755, -0.0139712, -0.0165845, -0.00424138, ... ]" ]
+    CLONE_71 -> Convolution_1042
+    Convolution_1068 [shape=box color=black label="Convolution_473\nConvolution_1068\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_1068 -> Add_1070
+    CLONE_72[ shape="box"  style="dashed"  color="black"  label="Transpose_1492\nConstant_1069\nopset1::Constant
+{f32}[1,1024,1,1]
+value: [ 0.106299, 0.148431, -0.0679735, -0.15015, 0.502844, 0.638636, -0.306394, ... ]" ]
+    CLONE_72 -> Add_1070
+    Relu_1066 [shape=box color=black label="Transpose_1488\nRelu_1066\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_1066 -> Convolution_1068
+    CLONE_73[ shape="box"  style="dashed"  color="black"  label="Transpose_472\nConstant_1067\nopset1::Constant
+{f32}[1024,256,1,1]
+value: [ 0.0530526, -0.079386, -0.0412607, 0.0130315, 0.0250727, 0.0413353, 0.10744, ... ]" ]
+    CLONE_73 -> Convolution_1068
+    Add_1065 [shape=box color=black label="Transpose_1486\nAdd_1065\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_1065 -> Relu_1066
+    Convolution_1063 [shape=box color=black label="Convolution_464\nConvolution_1063\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_1063 -> Add_1065
+    CLONE_74[ shape="box"  style="dashed"  color="black"  label="Transpose_1484\nConstant_1064\nopset1::Constant
+{f32}[1,256,1,1]
+value: [ -1.52351, 0.14318, 0.225343, -1.38804, -0.499224, 0.120366, 0.865264, ... ]" ]
+    CLONE_74 -> Add_1065
+    Relu_1061 [shape=box color=black label="Transpose_1480\nRelu_1061\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_1061 -> Convolution_1063
+    CLONE_75[ shape="box"  style="dashed"  color="black"  label="Transpose_463\nConstant_1062\nopset1::Constant
+{f32}[256,256,3,3]
+value: [ -0.00826326, 3.46298e-05, -0.00907244, -0.0140055, -0.0158419, 0.00389156, -0.00530377, ... ]" ]
+    CLONE_75 -> Convolution_1063
+    Add_1060 [shape=box color=black label="Transpose_1478\nAdd_1060\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_1060 -> Relu_1061
+    Convolution_1058 [shape=box color=black label="Convolution_455\nConvolution_1058\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_1058 -> Add_1060
+    CLONE_76[ shape="box"  style="dashed"  color="black"  label="Transpose_1476\nConstant_1059\nopset1::Constant
+{f32}[1,256,1,1]
+value: [ -2.04935, 0.00952181, -0.294866, 0.954187, -0.0645783, 0.198947, -0.418795, ... ]" ]
+    CLONE_76 -> Add_1060
+    Relu_1056 -> Convolution_1058
+    CLONE_77[ shape="box"  style="dashed"  color="black"  label="Transpose_454\nConstant_1057\nopset1::Constant
+{f32}[256,1024,1,1]
+value: [ 0.00516366, -0.00777688, -0.00483861, -0.00607404, -0.0110106, -0.0125572, -0.0172007, ... ]" ]
+    CLONE_77 -> Convolution_1058
+    Convolution_1084 [shape=box color=black label="Convolution_507\nConvolution_1084\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_1084 -> Add_1086
+    CLONE_78[ shape="box"  style="dashed"  color="black"  label="Transpose_1520\nConstant_1085\nopset1::Constant
+{f32}[1,1024,1,1]
+value: [ -1.15722, -0.549002, -1.02683, 0.0798047, 0.516887, -0.445176, -0.0591908, ... ]" ]
+    CLONE_78 -> Add_1086
+    Relu_1082 [shape=box color=black label="Transpose_1516\nRelu_1082\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_1082 -> Convolution_1084
+    CLONE_79[ shape="box"  style="dashed"  color="black"  label="Transpose_506\nConstant_1083\nopset1::Constant
+{f32}[1024,256,1,1]
+value: [ -0.0794854, -0.110715, 0.0953382, -0.068992, 0.00425076, 0.072513, -0.108068, ... ]" ]
+    CLONE_79 -> Convolution_1084
+    Add_1081 [shape=box color=black label="Transpose_1514\nAdd_1081\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_1081 -> Relu_1082
+    Convolution_1079 [shape=box color=black label="Convolution_498\nConvolution_1079\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_1079 -> Add_1081
+    CLONE_80[ shape="box"  style="dashed"  color="black"  label="Transpose_1512\nConstant_1080\nopset1::Constant
+{f32}[1,256,1,1]
+value: [ 0.808505, 0.217872, -0.0815583, -0.133138, 0.126057, 0.0530286, 0.455623, ... ]" ]
+    CLONE_80 -> Add_1081
+    Relu_1077 [shape=box color=black label="Transpose_1508\nRelu_1077\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_1077 -> Convolution_1079
+    CLONE_81[ shape="box"  style="dashed"  color="black"  label="Transpose_497\nConstant_1078\nopset1::Constant
+{f32}[256,256,3,3]
+value: [ -0.00361905, -0.000832569, 0.000835214, -0.000622871, 0.00519303, 0.00638822, 0.00241421, ... ]" ]
+    CLONE_81 -> Convolution_1079
+    Add_1076 [shape=box color=black label="Transpose_1506\nAdd_1076\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_1076 -> Relu_1077
+    Convolution_1074 [shape=box color=black label="Convolution_489\nConvolution_1074\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_1074 -> Add_1076
+    CLONE_82[ shape="box"  style="dashed"  color="black"  label="Transpose_1504\nConstant_1075\nopset1::Constant
+{f32}[1,256,1,1]
+value: [ 0.110985, 0.321306, 0.0271935, -0.964278, 0.253086, 0.362898, -0.271621, ... ]" ]
+    CLONE_82 -> Add_1076
+    Relu_1072 -> Convolution_1074
+    CLONE_83[ shape="box"  style="dashed"  color="black"  label="Transpose_488\nConstant_1073\nopset1::Constant
+{f32}[256,1024,1,1]
+value: [ 0.00704523, 0.0170643, -0.000747148, -0.00230877, -0.00323153, -0.00234586, -0.0100099, ... ]" ]
+    CLONE_83 -> Convolution_1074
+    Convolution_1100 [shape=box color=black label="Convolution_541\nConvolution_1100\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_1100 -> Add_1102
+    CLONE_84[ shape="box"  style="dashed"  color="black"  label="Transpose_1548\nConstant_1101\nopset1::Constant
+{f32}[1,1024,1,1]
+value: [ 0.176198, 0.080071, -1.24148, -0.0364936, -0.187484, 0.374399, 0.107381, ... ]" ]
+    CLONE_84 -> Add_1102
+    Relu_1098 [shape=box color=black label="Transpose_1544\nRelu_1098\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_1098 -> Convolution_1100
+    CLONE_85[ shape="box"  style="dashed"  color="black"  label="Transpose_540\nConstant_1099\nopset1::Constant
+{f32}[1024,256,1,1]
+value: [ 0.0839588, -0.010457, -0.00858288, 0.114266, 0.176875, 0.08799, -0.067961, ... ]" ]
+    CLONE_85 -> Convolution_1100
+    Add_1097 [shape=box color=black label="Transpose_1542\nAdd_1097\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_1097 -> Relu_1098
+    Convolution_1095 [shape=box color=black label="Convolution_532\nConvolution_1095\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_1095 -> Add_1097
+    CLONE_86[ shape="box"  style="dashed"  color="black"  label="Transpose_1540\nConstant_1096\nopset1::Constant
+{f32}[1,256,1,1]
+value: [ 0.252065, 0.44258, -2.59931, -0.909859, -0.183917, 0.183086, -0.222446, ... ]" ]
+    CLONE_86 -> Add_1097
+    Relu_1093 [shape=box color=black label="Transpose_1536\nRelu_1093\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_1093 -> Convolution_1095
+    CLONE_87[ shape="box"  style="dashed"  color="black"  label="Transpose_531\nConstant_1094\nopset1::Constant
+{f32}[256,256,3,3]
+value: [ 0.00765164, -0.0293104, -0.0218647, 0.0366249, -0.0353661, 0.00666166, 0.073892, ... ]" ]
+    CLONE_87 -> Convolution_1095
+    Add_1092 [shape=box color=black label="Transpose_1534\nAdd_1092\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_1092 -> Relu_1093
+    Convolution_1090 [shape=box color=black label="Convolution_523\nConvolution_1090\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_1090 -> Add_1092
+    CLONE_88[ shape="box"  style="dashed"  color="black"  label="Transpose_1532\nConstant_1091\nopset1::Constant
+{f32}[1,256,1,1]
+value: [ -0.471415, 0.420571, 0.0685328, -0.703502, -0.253852, -0.0687454, 0.270963, ... ]" ]
+    CLONE_88 -> Add_1092
+    Relu_1088 -> Convolution_1090
+    CLONE_89[ shape="box"  style="dashed"  color="black"  label="Transpose_522\nConstant_1089\nopset1::Constant
+{f32}[256,1024,1,1]
+value: [ -0.000743419, -0.00217926, -0.0139716, -0.0083398, 0.00592428, 0.00734138, 0.00173928, ... ]" ]
+    CLONE_89 -> Convolution_1090
+    Convolution_1116 [shape=box color=black label="Convolution_575\nConvolution_1116\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_1116 -> Add_1118
+    CLONE_90[ shape="box"  style="dashed"  color="black"  label="Transpose_1576\nConstant_1117\nopset1::Constant
+{f32}[1,1024,1,1]
+value: [ 0.505716, 0.568113, -0.138729, -0.208705, 0.483088, 0.0791074, -0.203295, ... ]" ]
+    CLONE_90 -> Add_1118
+    Relu_1114 [shape=box color=black label="Transpose_1572\nRelu_1114\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_1114 -> Convolution_1116
+    CLONE_91[ shape="box"  style="dashed"  color="black"  label="Transpose_574\nConstant_1115\nopset1::Constant
+{f32}[1024,256,1,1]
+value: [ -0.0712926, -0.217369, -0.276772, -0.126955, 0.0605951, 0.136554, -0.29618, ... ]" ]
+    CLONE_91 -> Convolution_1116
+    Add_1113 [shape=box color=black label="Transpose_1570\nAdd_1113\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_1113 -> Relu_1114
+    Convolution_1111 [shape=box color=black label="Convolution_566\nConvolution_1111\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_1111 -> Add_1113
+    CLONE_92[ shape="box"  style="dashed"  color="black"  label="Transpose_1568\nConstant_1112\nopset1::Constant
+{f32}[1,256,1,1]
+value: [ -0.00258694, -0.276744, -0.62519, -0.202759, -0.63962, 0.110219, -0.25382, ... ]" ]
+    CLONE_92 -> Add_1113
+    Relu_1109 [shape=box color=black label="Transpose_1564\nRelu_1109\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_1109 -> Convolution_1111
+    CLONE_93[ shape="box"  style="dashed"  color="black"  label="Transpose_565\nConstant_1110\nopset1::Constant
+{f32}[256,256,3,3]
+value: [ 0.0199547, -0.00136764, -0.0023409, 0.0598687, 0.0389301, -0.00721332, 0.043517, ... ]" ]
+    CLONE_93 -> Convolution_1111
+    Add_1108 [shape=box color=black label="Transpose_1562\nAdd_1108\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_1108 -> Relu_1109
+    Convolution_1106 [shape=box color=black label="Convolution_557\nConvolution_1106\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_1106 -> Add_1108
+    CLONE_94[ shape="box"  style="dashed"  color="black"  label="Transpose_1560\nConstant_1107\nopset1::Constant
+{f32}[1,256,1,1]
+value: [ 0.456426, 0.127524, -0.929034, -0.122716, -0.191784, 0.537245, 0.320659, ... ]" ]
+    CLONE_94 -> Add_1108
+    Relu_1104 -> Convolution_1106
+    CLONE_95[ shape="box"  style="dashed"  color="black"  label="Transpose_556\nConstant_1105\nopset1::Constant
+{f32}[256,1024,1,1]
+value: [ 0.0130065, -0.0131935, 0.0119585, -0.0137542, -0.0154883, -0.0174943, -0.00183132, ... ]" ]
+    CLONE_95 -> Convolution_1106
+    Convolution_1132 [shape=box color=black label="Convolution_650\nConvolution_1132\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_1132 -> Add_1134
+    CLONE_96[ shape="box"  style="dashed"  color="black"  label="Transpose_1619\nConstant_1133\nopset1::Constant
+{f32}[1,2048,1,1]
+value: [ -1.05459, 2.32153, -0.342679, 0.194679, 0.683007, 0.0686146, 1.02431, ... ]" ]
+    CLONE_96 -> Add_1134
+    Relu_1130 [shape=box color=black label="Transpose_1615\nRelu_1130\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_1130 -> Convolution_1132
+    CLONE_97[ shape="box"  style="dashed"  color="black"  label="Transpose_649\nConstant_1131\nopset1::Constant
+{f32}[2048,512,1,1]
+value: [ 0.163152, -0.136723, 0.0820569, 0.285235, 0.0505352, -0.025973, 0.524915, ... ]" ]
+    CLONE_97 -> Convolution_1132
+    Add_1129 [shape=box color=black label="Transpose_1613\nAdd_1129\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_1129 -> Relu_1130
+    Convolution_1127 [shape=box color=black label="Convolution_641\nConvolution_1127\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_1127 -> Add_1129
+    CLONE_98[ shape="box"  style="dashed"  color="black"  label="Transpose_1611\nConstant_1128\nopset1::Constant
+{f32}[1,512,1,1]
+value: [ 0.67371, 0.0346993, 0.141285, 0.122533, 0.920351, 0.26558, 0.183654, ... ]" ]
+    CLONE_98 -> Add_1129
+    Relu_1125 [shape=box color=black label="Transpose_1592\nRelu_1125\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_1125 -> Convolution_1127
+    CLONE_99[ shape="box"  style="dashed"  color="black"  label="Transpose_640\nConstant_1126\nopset1::Constant
+{f32}[512,512,3,3]
+value: [ 0.0163393, 0.0115412, 0.00568675, 0.013206, 0.00681377, 0.0258315, 0.0288536, ... ]" ]
+    CLONE_99 -> Convolution_1127
+    Add_1124 [shape=box color=black label="Transpose_1590\nAdd_1124\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_1124 -> Relu_1125
+    Convolution_1122 [shape=box color=black label="Convolution_616\nConvolution_1122\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_1122 -> Add_1124
+    CLONE_100[ shape="box"  style="dashed"  color="black"  label="Transpose_1588\nConstant_1123\nopset1::Constant
+{f32}[1,512,1,1]
+value: [ -0.946654, -1.11676, -0.412693, -1.00692, -1.01608, -1.0164, -0.2901, ... ]" ]
+    CLONE_100 -> Add_1124
+    Relu_1120 -> Convolution_1122
+    CLONE_101[ shape="box"  style="dashed"  color="black"  label="Transpose_615\nConstant_1121\nopset1::Constant
+{f32}[512,1024,1,1]
+value: [ 0.0579077, -0.018816, 0.0206299, -0.0104804, -0.00756554, -0.0326388, 0.0131758, ... ]" ]
+    CLONE_101 -> Convolution_1122
+    Convolution_1152 [shape=box color=black label="Convolution_684\nConvolution_1152\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_1152 -> Add_1154
+    CLONE_102[ shape="box"  style="dashed"  color="black"  label="Transpose_1668\nConstant_1153\nopset1::Constant
+{f32}[1,2048,1,1]
+value: [ -1.134, -0.682832, -1.16882, -0.223838, -0.958016, -1.48524, -1.16725, ... ]" ]
+    CLONE_102 -> Add_1154
+    Relu_1150 [shape=box color=black label="Transpose_1664\nRelu_1150\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_1150 -> Convolution_1152
+    CLONE_103[ shape="box"  style="dashed"  color="black"  label="Transpose_683\nConstant_1151\nopset1::Constant
+{f32}[2048,512,1,1]
+value: [ 0.206634, -0.0838073, -0.190864, -0.0641684, 0.0680252, -0.0762509, -0.193401, ... ]" ]
+    CLONE_103 -> Convolution_1152
+    Add_1149 [shape=box color=black label="Transpose_1662\nAdd_1149\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_1149 -> Relu_1150
+    Convolution_1147 [shape=box color=black label="Convolution_675\nConvolution_1147\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_1147 -> Add_1149
+    CLONE_104[ shape="box"  style="dashed"  color="black"  label="Transpose_1660\nConstant_1148\nopset1::Constant
+{f32}[1,512,1,1]
+value: [ 0.919917, -0.032483, 0.0182476, -0.537967, 0.298949, 0.135114, -0.0938128, ... ]" ]
+    CLONE_104 -> Add_1149
+    Relu_1145 [shape=box color=black label="Transpose_1656\nRelu_1145\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_1145 -> Convolution_1147
+    CLONE_105[ shape="box"  style="dashed"  color="black"  label="Transpose_674\nConstant_1146\nopset1::Constant
+{f32}[512,512,3,3]
+value: [ -0.00350002, 0.00307288, 0.00106045, -0.00142006, 0.00537921, 0.00522851, 0.00664474, ... ]" ]
+    CLONE_105 -> Convolution_1147
+    Add_1144 [shape=box color=black label="Transpose_1654\nAdd_1144\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_1144 -> Relu_1145
+    Convolution_1142 [shape=box color=black label="Convolution_666\nConvolution_1142\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_1142 -> Add_1144
+    CLONE_106[ shape="box"  style="dashed"  color="black"  label="Transpose_1652\nConstant_1143\nopset1::Constant
+{f32}[1,512,1,1]
+value: [ 0.595008, 0.503713, 0.281713, -0.440914, 0.0604944, 0.0981981, -0.268637, ... ]" ]
+    CLONE_106 -> Add_1144
+    Relu_1140 -> Convolution_1142
+    CLONE_107[ shape="box"  style="dashed"  color="black"  label="Transpose_665\nConstant_1141\nopset1::Constant
+{f32}[512,2048,1,1]
+value: [ 0.000508899, -0.00582671, -0.00137824, -0.00570603, 0.00547508, -0.00328511, 0.00058122, ... ]" ]
+    CLONE_107 -> Convolution_1142
+    Convolution_1168 [shape=box color=black label="Convolution_718\nConvolution_1168\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_1168 -> Add_1170
+    CLONE_108[ shape="box"  style="dashed"  color="black"  label="Transpose_1696\nConstant_1169\nopset1::Constant
+{f32}[1,2048,1,1]
+value: [ -1.05331, -1.10463, -0.993767, -0.729713, -0.597216, -0.749834, 0.238674, ... ]" ]
+    CLONE_108 -> Add_1170
+    Relu_1166 [shape=box color=black label="Transpose_1692\nRelu_1166\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_1166 -> Convolution_1168
+    CLONE_109[ shape="box"  style="dashed"  color="black"  label="Transpose_717\nConstant_1167\nopset1::Constant
+{f32}[2048,512,1,1]
+value: [ -0.0172348, -0.101711, -0.0120249, -0.0994245, -0.0240603, 0.0129757, -0.0356271, ... ]" ]
+    CLONE_109 -> Convolution_1168
+    Add_1165 [shape=box color=black label="Transpose_1690\nAdd_1165\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_1165 -> Relu_1166
+    Convolution_1163 [shape=box color=black label="Convolution_709\nConvolution_1163\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_1163 -> Add_1165
+    CLONE_110[ shape="box"  style="dashed"  color="black"  label="Transpose_1688\nConstant_1164\nopset1::Constant
+{f32}[1,512,1,1]
+value: [ -0.0184472, -0.137303, 0.142585, -0.107249, 0.252911, 0.40551, -0.216062, ... ]" ]
+    CLONE_110 -> Add_1165
+    Relu_1161 [shape=box color=black label="Transpose_1684\nRelu_1161\nopset1::Relu\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Relu_1161 -> Convolution_1163
+    CLONE_111[ shape="box"  style="dashed"  color="black"  label="Transpose_708\nConstant_1162\nopset1::Constant
+{f32}[512,512,3,3]
+value: [ 0.0235204, 0.012696, 0.0119869, 0.000219625, -0.00374201, 0.007852, -0.00903229, ... ]" ]
+    CLONE_111 -> Convolution_1163
+    Add_1160 [shape=box color=black label="Transpose_1682\nAdd_1160\nopset1::Add\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Add_1160 -> Relu_1161
+    Convolution_1158 [shape=box color=black label="Convolution_700\nConvolution_1158\nopset1::Convolution\nsubgraph=0\ndevice=FPGA" fillcolor=aliceblue style=filled]
+    Convolution_1158 -> Add_1160
+    CLONE_112[ shape="box"  style="dashed"  color="black"  label="Transpose_1680\nConstant_1159\nopset1::Constant
+{f32}[1,512,1,1]
+value: [ -0.398752, 0.24955, -0.940836, -0.353813, 0.375935, -2.30189, -0.653933, ... ]" ]
+    CLONE_112 -> Add_1160
+    Relu_1156 -> Convolution_1158
+    CLONE_113[ shape="box"  style="dashed"  color="black"  label="Transpose_699\nConstant_1157\nopset1::Constant
+{f32}[512,2048,1,1]
+value: [ 0.00487777, -0.000231037, 0.00273341, -0.0076454, 0.0157479, -0.00586879, -0.00385851, ... ]" ]
+    CLONE_113 -> Convolution_1158
+}
